@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productity · Pomodoro para estudiar con dos pantallas</title>
+  <meta name="description" content="Productity: el temporizador pomodoro nativo para Mac y iPad pensado para estudiar con dos pantallas. Reloj a pantalla completa, metas por día y racha. Primero lo local.">
+  <meta name="theme-color" content="#05060b">
+  <meta property="og:title" content="Productity · Pomodoro para estudiar con dos pantallas">
+  <meta property="og:description" content="El reloj en el portátil, el material en el monitor grande y una racha que no quieres romper.">
+  <meta property="og:image" content="https://brayanvera.com/assets/img/productity/reloj.png">
+  <link rel="icon" href="/assets/img/productity/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/landing.css">
+  <style>
+    :root { --p: #f26b21; --p-2: #ff9a5c; --accent: #f26b21; }
+    ::selection { background: rgba(242,107,33,0.35); }
+
+    /* Escena de dos pantallas con el reloj en vivo */
+    .desk { position: relative; max-width: 1060px; margin: 70px auto 0; height: 520px; }
+    .monitor {
+      position: absolute; right: 0; top: 0; width: 66%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden;
+      background: #16171c; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 40px 100px -30px rgba(0,0,0,0.9);
+    }
+    .monitor-page { position: absolute; inset: 7% 14%; background: #fbfaf7; border-radius: 4px; padding: 6% 7%; color: #1b1b1f; font-family: "Times New Roman", serif; overflow: hidden; text-align: justify; }
+    .monitor-page h4 { margin: 0 0 10px; font-size: clamp(11px, 1.4vw, 17px); }
+    .monitor-page p { margin: 0 0 8px; font-size: clamp(7px, .85vw, 11px); line-height: 1.5; color: #333; }
+    .monitor-page .eq { text-align: center; font-style: italic; margin: 10px 0; font-size: clamp(9px, 1.1vw, 14px); }
+    .laptop {
+      position: absolute; left: 0; bottom: 0; width: 52%; z-index: 2;
+    }
+    .laptop-screen {
+      aspect-ratio: 16 / 10.4; border-radius: 14px 14px 0 0; background: radial-gradient(ellipse at center, #121722 0%, #0b0d12 70%);
+      border: 8px solid #1d1f25; border-bottom: 0; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: 0 40px 100px -20px rgba(0,0,0,0.9);
+    }
+    .laptop-base { height: 14px; background: linear-gradient(180deg, #2a2c33, #15161a); border-radius: 0 0 12px 12px; margin: 0 -5%; }
+    .clock-subject { display: flex; align-items: center; gap: 8px; font-size: clamp(9px, 1.05vw, 13px); letter-spacing: .18em; color: #8e93a3; font-weight: 500; }
+    .clock-subject i { width: 7px; height: 7px; border-radius: 50%; background: #4c8dff; display: block; }
+    .clock-time { font-family: var(--font); font-weight: 200; font-size: clamp(54px, 9.5vw, 120px); line-height: 1; letter-spacing: -0.02em; color: #eef0f7; margin: 14px 0 18px; font-variant-numeric: tabular-nums; }
+    .clock-time.over { color: var(--p-2); }
+    .clock-dots { display: flex; gap: 7px; }
+    .clock-dots i { width: 9px; height: 9px; border-radius: 50%; display: block; }
+    .clock-note { margin-top: 10px; font-size: clamp(9px, 1vw, 12px); color: #6f7486; }
+    .desk-label { position: absolute; font-family: var(--font-mono); font-size: 12px; color: var(--text-3); }
+    @media (max-width: 760px) {
+      .desk { height: auto; }
+      .monitor { display: none; }
+      .laptop { position: relative; width: 100%; }
+      .desk-label { display: none; }
+    }
+
+    .shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 40px 100px -30px rgba(0,0,0,.9); }
+    .float-shot { position: relative; }
+    .float-shot .mini { position: absolute; right: -6%; bottom: -10%; width: 46%; border-radius: 14px; box-shadow: 0 30px 60px -10px rgba(0,0,0,.8); border: 1px solid var(--border-strong); }
+    @media (max-width: 900px) { .float-shot .mini { right: 4%; } }
+
+    .sync { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 50px; }
+    .sync .card h3 { font-family: var(--font-display); font-size: 20px; margin: 0 0 8px; }
+    .sync .card p { color: var(--text-2); margin: 0; font-size: 15.5px; }
+    .sync .big { font-size: 38px; margin-bottom: 14px; display: block; }
+    @media (max-width: 860px) { .sync { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="grain">
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand"><span class="brand-mark">ψ</span>Brayan Vera</a>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+      <div class="nav-links">
+        <a href="#funciones">Funciones</a>
+        <a href="#ipad">iPad</a>
+        <a href="/proyectos/">Proyectos</a>
+        <a href="#acceso" class="cta">Quiero probarla</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="l-hero">
+    <div class="container" style="position:relative">
+      <a href="/proyectos/" class="l-back reveal">← Proyectos personales</a>
+      <img src="/assets/img/productity/icon.png" alt="Icono de Productity" class="l-icon reveal">
+      <h1 class="h-display l-title reveal d1">Productity</h1>
+      <p class="l-sub reveal d2">El temporizador pomodoro para estudiar <em>con dos pantallas</em>.</p>
+      <p class="lead reveal d2">El reloj en el portátil (o en el iPad), el material en el monitor grande, y una racha que no quieres romper.</p>
+      <div class="l-actions reveal d3">
+        <a href="#acceso" class="btn btn-p">Quiero probarla</a>
+        <a href="#funciones" class="btn btn-ghost">Ver funciones</a>
+      </div>
+      <div class="l-meta reveal d4">
+        <span class="tag">macOS 14+</span><span class="tag">iPadOS 17+</span><span class="tag">Swift · SwiftUI · AppKit</span><span class="tag">0 dependencias</span>
+      </div>
+
+      <div class="desk reveal d3" aria-hidden="true">
+        <div class="monitor">
+          <div class="monitor-page">
+            <h4>4.2 El oscilador armónico cuántico</h4>
+            <p>Consideremos una partícula de masa m sujeta a un potencial cuadrático. Introduciendo los operadores de creación y aniquilación, el hamiltoniano adopta una forma particularmente simple.</p>
+            <div class="eq">Ĥ = ħω (â†â + ½)</div>
+            <p>Los autovalores de la energía resultan equiespaciados, separados por ħω, y el estado fundamental posee una energía no nula: la energía de punto cero.</p>
+            <div class="eq">Eₙ = ħω (n + ½),  n = 0, 1, 2, …</div>
+            <p>Este resultado, en apariencia modesto, reaparece en la teoría cuántica de campos, donde cada modo del campo se comporta como un oscilador independiente.</p>
+          </div>
+        </div>
+        <div class="laptop">
+          <div class="laptop-screen">
+            <div class="clock-subject"><i></i>MECÁNICA CUÁNTICA</div>
+            <div class="clock-time" id="clock">45:00</div>
+            <div class="clock-dots"><i style="background:#4c8dff"></i><i style="background:#2fbf71"></i><i style="background:#a66cff"></i><i style="border:1.5px solid #4c8dff"></i></div>
+            <div class="clock-note" id="clock-note">3 de 4 · racha de 7 días</div>
+          </div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Qué es -->
+  <section class="l-section" style="padding-top:60px">
+    <div class="container split">
+      <div>
+        <span class="eyebrow reveal">¿Qué es?</span>
+        <h2 class="h-section reveal d1">Nació de un problema <span class="serif" style="color:var(--p)">concreto</span>.</h2>
+        <p class="lead reveal d2">Estudiar con un MacBook conectado a un monitor externo, con el material en la pantalla grande y la del portátil dedicada solo al reloj. Productity cuenta lo que estudias con la técnica pomodoro, y lo hace sin estorbar.</p>
+        <ul class="reveal d3">
+          <li><span><b>Bloques de 45 minutos</b> por defecto, no los 25 clásicos, con descansos cortos y largos.</span></li>
+          <li><span><b>Reloj a pantalla completa</b> en el monitor que elijas, tapando barra de menús y Dock, sin quitarte el foco del teclado.</span></li>
+          <li><span><b>Apunta en qué trabajaste</b> en cada bloque, desde la app o desde el propio aviso.</span></li>
+        </ul>
+      </div>
+      <img src="/assets/img/productity/hoy.png" alt="Pantalla Hoy de Productity" class="shot reveal d2" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Funciones -->
+  <section class="l-section" id="funciones" style="padding-top:40px">
+    <div class="container l-center">
+      <span class="eyebrow reveal">Funciones</span>
+      <h2 class="h-section reveal d1">Todo lo que necesitas para <span class="serif" style="color:var(--p)">no romper la racha</span></h2>
+      <div class="features" style="text-align:left">
+        <div class="card feature reveal"><div class="f-icon">⏱</div><h3>Bloques a tu medida</h3><p>25, 45, 50, 60 o 90 minutos. La cuenta atrás usa marcas de tiempo absolutas: no se desvía al suspender el Mac.</p></div>
+        <div class="card feature reveal d1"><div class="f-icon">🌊</div><h3>Tiempo extra en racha</h3><p>Al acabar el bloque suena la campana, pero el reloj sigue: lo que estudies de más se suma al bloque.</p></div>
+        <div class="card feature reveal d2"><div class="f-icon">🖥</div><h3>Pantalla completa, sin foco</h3><p>El reloj ocupa la pantalla que elijas y la recuerda por monitor, aunque lo desconectes.</p></div>
+        <div class="card feature reveal"><div class="f-icon">🎯</div><h3>Metas por día</h3><p>Más pomodoros los días libres, menos los días cargados de clase. Cambiarlas no reescribe el pasado.</p></div>
+        <div class="card feature reveal d1"><div class="f-icon">🔥</div><h3>Racha y protectores</h3><p>Cada semana completa te da un protector que salva la racha un día flojo. Hasta dos guardados.</p></div>
+        <div class="card feature reveal d2"><div class="f-icon">🗓</div><h3>Horario de clases</h3><p>Conectado con tus materias: te avisa cuándo ponerte a estudiar y puede ajustar tus metas solo.</p></div>
+        <div class="card feature reveal"><div class="f-icon">📊</div><h3>Historial que motiva</h3><p>Mapa de actividad del último año, últimos 7 días frente a la meta y reparto por materia.</p></div>
+        <div class="card feature reveal d1"><div class="f-icon">📝</div><h3>Notas por bloque</h3><p>«Estudié los postulados de la Termodinámica». Sesiones manuales y correcciones cuando las necesites.</p></div>
+        <div class="card feature reveal d2"><div class="f-icon">🔒</div><h3>Primero lo local</h3><p>Funciona sin cuenta y sin conexión. La cuenta es opcional. Sin telemetría.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tiempo extra -->
+  <section class="l-section" style="padding-top:40px">
+    <div class="container split rev">
+      <div>
+        <span class="eyebrow reveal">Tiempo extra</span>
+        <h2 class="h-section reveal d1">Cuando estás en racha, <span class="serif" style="color:var(--p)">el reloj no te corta</span>.</h2>
+        <p class="lead reveal d2">Al llegar a cero suena y el reloj pasa a «+03:12». El pomodoro ya cuenta, y los minutos de más se suman al bloque cuando pasas al descanso, con un tope configurable.</p>
+      </div>
+      <img src="/assets/img/productity/tiempo-extra.png" alt="Tiempo extra tras completar un bloque" class="shot reveal d2" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Historial -->
+  <section class="l-section" style="padding-top:40px">
+    <div class="container split">
+      <div>
+        <span class="eyebrow reveal">Historial</span>
+        <h2 class="h-section reveal d1">Tu constancia, <span class="serif" style="color:var(--p)">de un vistazo</span>.</h2>
+        <p class="lead reveal d2">Racha actual y mejor racha, un mapa del año al estilo de GitHub y cuánto le dedicas a cada materia. Pulsa un día para ver sus sesiones y corregirlas.</p>
+        <ul class="reveal d3">
+          <li><span><b>«Esta semana»</b> frente a la semana pasada hasta el mismo día.</span></li>
+          <li><span><b>La jornada empieza a las 4:00</b>: estudiar a la 1 de la madrugada cuenta para el día anterior.</span></li>
+          <li><span><b>Un día con meta 0 es de descanso</b> y no rompe la racha.</span></li>
+        </ul>
+      </div>
+      <img src="/assets/img/productity/historial.png" alt="Pantalla Historial de Productity" class="shot reveal d2" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Horario + flotante -->
+  <section class="l-section" style="padding-top:40px">
+    <div class="container split rev">
+      <div>
+        <span class="eyebrow reveal">Horario y reloj flotante</span>
+        <h2 class="h-section reveal d1">Tu semana, <span class="serif" style="color:var(--p)">con el color de cada materia</span>.</h2>
+        <p class="lead reveal d2">Lo que apuntas en el horario aparece en Materias. Tras la última clase del día, un aviso te propone repasarla. Y con una sola pantalla, el reloj se reduce a una tarjeta flotante que queda por encima de todo.</p>
+      </div>
+      <div class="float-shot reveal d2">
+        <img src="/assets/img/productity/horario.png" alt="Pantalla Horario" class="shot" loading="lazy" style="max-height:560px;width:auto;margin:0 auto">
+        <img src="/assets/img/productity/flotante.png" alt="Reloj flotante" class="mini" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- iPad -->
+  <section class="l-section" id="ipad" style="padding-top:40px">
+    <div class="container l-center">
+      <span class="eyebrow reveal">Mac + iPad</span>
+      <h2 class="h-section reveal d1">Empieza en el Mac. <span class="serif" style="color:var(--p)">Páusalo desde el iPad.</span></h2>
+      <p class="lead reveal d2">Las mismas pantallas en el iPad, que también puede hacer de reloj a pantalla completa con la cuenta atrás en la pantalla de bloqueo.</p>
+      <div class="sync" style="text-align:left">
+        <div class="card reveal"><span class="big">📱</span><h3>También en el iPad</h3><p>El iPad hace de reloj dedicado y la cuenta atrás se ve en la pantalla de bloqueo.</p></div>
+        <div class="card reveal d1"><span class="big">🔄</span><h3>Sincronización opcional</h3><p>Sesiones, materias, metas, horario y hasta el temporizador en marcha, con tu propio proyecto gratuito de Supabase.</p></div>
+        <div class="card reveal d2"><span class="big">🛡</span><h3>Tus datos, tuyos</h3><p>Sin cuenta funciona igual. Si sincronizas, es con tu propio backend, no con un servidor ajeno.</p></div>
+      </div>
+      <div class="stats" style="text-align:left">
+        <div class="card stat reveal"><b>45<small style="font-size:18px"> min</small></b><span>bloque por defecto</span></div>
+        <div class="card stat reveal d1"><b>148</b><span>pruebas automáticas en verde</span></div>
+        <div class="card stat reveal d2"><b>0</b><span>dependencias externas</span></div>
+        <div class="card stat reveal d3"><b>100<small style="font-size:18px"> %</small></b><span>nativa: SwiftUI + AppKit</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="acceso">
+    <div class="container">
+      <span class="eyebrow reveal" style="color:var(--p)">Acceso</span>
+      <h2 class="h-display reveal d1">¿Quieres probar Productity?</h2>
+      <p class="lead reveal d2">Escríbeme y te envío la versión para Mac. Requiere macOS 14 Sonoma o posterior.</p>
+      <div class="l-actions reveal d3">
+        <a href="mailto:tecnpi2@gmail.com?subject=Quiero%20probar%20Productity" class="btn btn-p">Pedir acceso</a>
+        <a href="/proyectos/" class="btn btn-ghost">Otros proyectos</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-bottom:90px">
+    <div class="container">
+      <div class="next-projects">
+        <a href="/proyectos/hilbert/" class="card"><img src="/assets/img/hilbert/icon.png" alt=""><div><b>Hilbert</b><span>Lector de PDF para física y matemáticas</span></div></a>
+        <a href="/proyectos/zapper/" class="card"><img src="/assets/img/zapper/icon.png" alt=""><div><b>Zapper</b><span>El control de tu TV Samsung, en el Mac</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Brayan Vera · Productity</span>
+      <div class="footer-links"><a href="/">Inicio</a><a href="/proyectos/">Proyectos</a><a href="mailto:tecnpi2@gmail.com">Contacto</a></div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
+  <script>
+    // Reloj en vivo: un bloque acelerado que termina en tiempo extra, como en la app.
+    (function () {
+      const el = document.getElementById('clock'), note = document.getElementById('clock-note');
+      if (!el || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      let s = 45 * 60;
+      const fmt = v => String(Math.floor(Math.abs(v) / 60)).padStart(2, '0') + ':' + String(Math.abs(v) % 60).padStart(2, '0');
+      setInterval(() => {
+        s -= s > 60 ? 7 : 1;
+        if (s < -200) s = 45 * 60;
+        el.textContent = (s < 0 ? '+' : '') + fmt(s);
+        el.classList.toggle('over', s < 0);
+        note.textContent = s < 0 ? 'Meta cumplida · racha de 8 días' : '3 de 4 · racha de 7 días';
+      }, 1000 / 6);
+    })();
+  </script>
+</body>
+</html>
