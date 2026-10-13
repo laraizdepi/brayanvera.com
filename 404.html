@@ -4,23 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Página no encontrada · Brayan Vera</title>
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Instrument+Serif:ital@1&family=JetBrains+Mono&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <style>
-    main { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 24px; }
-    h1 { font-size: clamp(90px, 20vw, 200px); margin: 0; }
-    p { color: var(--text-2); max-width: 520px; margin: 10px auto 30px; }
-  </style>
+  <link rel="icon" href="/assets/site/favicon.svg" type="image/svg+xml">
+  <script>try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site/notebook.css">
 </head>
-<body class="grain">
-  <main>
-    <div>
-      <span class="eyebrow">Error 404</span>
-      <h1 class="h-display"><span class="serif grad-text">404</span></h1>
-      <p>Esta página está en una superposición de existir y no existir. Al observarla, colapsó a «no existe».</p>
-      <a href="/" class="btn btn-primary">Volver al inicio</a>
-    </div>
+<body>
+  <main class="page" style="min-height:100vh; display:grid; align-content:center; max-width:720px">
+    <div class="kicker">Error 404</div>
+    <h1 class="title">Esta página <em>no existe</em>.</h1>
+    <p style="font-size:20px; color:var(--ink-2)">Mientras nadie la miraba, estaba en superposición de existir y no existir. Al buscarla, colapsó a «no existe».</p>
+    <p><a href="/">← Volver al inicio</a></p>
   </main>
 </body>
 </html>
