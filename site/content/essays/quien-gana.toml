@@ -1,0 +1,61 @@
+order = 1
+date = 2026-02-25
+minutes = 3
+
+[slug]
+es = "quien-gana"
+en = "who-wins"
+de = "wer-gewinnt"
+
+[title]
+es = "¿Quién gana una competencia de multiplicar?"
+en = "Who wins a multiplication contest?"
+de = "Wer gewinnt einen Wettbewerb im Multiplizieren?"
+
+[description]
+es = "Herramientas, habilidades y las reglas del juego, en tiempos de IA."
+en = "Tools, skills and the rules of the game in the age of AI."
+de = "Werkzeuge, Fähigkeiten und die Spielregeln im Zeitalter der KI."
+
+[side]
+es = '''<p class="sidenote"><span class="n">1</span>Es la misma pregunta que me hago al diseñar software con IA. Por eso, en lo que construyo, el modelo puede redactar pero no inventar números: lo que afirma se verifica.</p>'''
+en = '''<p class="sidenote"><span class="n">1</span>It's the same question I ask myself when I design software with AI. That's why, in what I build, the model can write but can't invent numbers: what it claims gets checked.</p>'''
+de = '''<p class="sidenote"><span class="n">1</span>Dieselbe Frage stelle ich mir, wenn ich Software mit KI entwerfe. Deshalb darf das Modell in dem, was ich baue, formulieren, aber keine Zahlen erfinden: Was es behauptet, wird überprüft.</p>'''
+
+[body]
+es = '''
+<p>Hoy me levanté con una pregunta que parecía tonta: en una competencia de multiplicar, ¿quién gana?</p>
+<p>Pongamos a un genio que lleva practicando multiplicaciones diez horas al día desde los cinco años, frente a alguien con una calculadora. Gana el de la calculadora. No porque sepa más, sino porque supo usar la herramienta.</p>
+<p>Pero ahí hice una suposición sin darme cuenta: que la herramienta siempre da el valor correcto. ¿Y si a veces falla? ¿Qué porcentaje de error es aceptable? Si agrego a un tercer competidor, alguien que multiplica de forma decente y además sabe usar la calculadora, ese les gana a los dos. Usa la herramienta y sabe cuándo desconfiar de ella.</p>
+<p>Creo que esa es la pregunta de estos años con la inteligencia artificial. La IA es una calculadora que casi siempre acierta. No gana quien la ignora ni quien le cree todo, sino quien entiende lo suficiente para notar cuándo se equivoca<sup class="n">1</sup>.</p>
+<hr>
+<p>Sigamos complicándolo. Si alguien es amigo de quien escribe las multiplicaciones y se las pasa antes de empezar, les gana a todos. Pero eso es trampa.</p>
+<p>¿Trampa? Entonces hay reglas. Para hablar siquiera de ganadores y perdedores, primero hay que conocer muy bien las reglas con las que se juega. Si las reglas prohíben la calculadora y las respuestas anticipadas, gana el niño que simplemente sabe multiplicar, porque a los demás los descalifican.</p>
+<p>Hay incluso alguien imbatible: el que ve el futuro. ¿Alguien le gana al que ve el futuro? Creo que no, salvo que las reglas lo prohíban.</p>
+<p>Lo que me quedó es esto: en los juegos las reglas se dicen; en la vida, muchas no. Y hay una regla implícita que genera mucha frustración: se da por hecho que las reglas se cumplen. Cuando alguien gana rompiéndolas, quien jugó limpio se pregunta si entendió mal el juego.</p>
+<blockquote>No conocer las reglas del juego puede llevar a perderlo.<br>Malinterpretar las reglas del juego puede llevar a la frustración.</blockquote>
+'''
+en = '''
+<p>Today I woke up with a question that seemed silly: in a multiplication contest, who wins?</p>
+<p>Take a genius who has practiced multiplication ten hours a day since the age of five, against someone with a calculator. The one with the calculator wins. Not because they know more, but because they knew how to use the tool.</p>
+<p>But there I made an assumption without noticing: that the tool always gives the right answer. What if it sometimes fails? What error rate is acceptable? If I add a third contestant, someone who multiplies decently and also knows how to use the calculator, that person beats the other two. They use the tool and know when to distrust it.</p>
+<p>I think that's the question of these years with artificial intelligence. AI is a calculator that is almost always right. The winner isn't whoever ignores it or whoever believes everything it says, but whoever understands enough to notice when it's wrong<sup class="n">1</sup>.</p>
+<hr>
+<p>Let's make it harder. If someone is friends with the person writing the problems and gets them before the start, they beat everyone. But that's cheating.</p>
+<p>Cheating? So there are rules. Before we can even talk about winners and losers, we have to know the rules of the game very well. If the rules forbid calculators and getting the answers early, the kid who simply knows how to multiply wins, because everyone else is disqualified.</p>
+<p>There's even someone unbeatable: the one who sees the future. Can anyone beat the one who sees the future? I don't think so, unless the rules forbid it.</p>
+<p>What stayed with me is this: in games, the rules are spelled out; in life, many aren't. And there's one implicit rule that causes a lot of frustration: we take for granted that the rules are followed. When someone wins by breaking them, whoever played fair wonders whether they misunderstood the game.</p>
+<blockquote>Not knowing the rules of the game can make you lose it.<br>Misreading the rules of the game can lead to frustration.</blockquote>
+'''
+de = '''
+<p>Heute bin ich mit einer Frage aufgewacht, die albern wirkte: Wer gewinnt einen Wettbewerb im Multiplizieren?</p>
+<p>Nehmen wir ein Genie, das seit seinem fünften Lebensjahr zehn Stunden am Tag Multiplikationen übt, gegen jemanden mit einem Taschenrechner. Es gewinnt der mit dem Taschenrechner. Nicht, weil er mehr weiß, sondern weil er das Werkzeug zu nutzen wusste.</p>
+<p>Aber da habe ich, ohne es zu merken, etwas vorausgesetzt: dass das Werkzeug immer das richtige Ergebnis liefert. Und wenn es manchmal versagt? Welche Fehlerquote ist akzeptabel? Nehme ich einen dritten Teilnehmer dazu, jemanden, der ordentlich multiplizieren kann und außerdem den Taschenrechner benutzt, dann schlägt er die beiden anderen. Er nutzt das Werkzeug und weiß, wann er ihm misstrauen muss.</p>
+<p>Ich glaube, das ist die Frage dieser Jahre mit künstlicher Intelligenz. KI ist ein Taschenrechner, der fast immer richtig liegt. Es gewinnt weder, wer sie ignoriert, noch, wer ihr alles glaubt, sondern wer genug versteht, um zu merken, wann sie sich irrt<sup class="n">1</sup>.</p>
+<hr>
+<p>Machen wir es komplizierter. Ist jemand mit der Person befreundet, die die Aufgaben schreibt, und bekommt sie vor dem Start, dann schlägt er alle. Aber das ist Betrug.</p>
+<p>Betrug? Dann gibt es also Regeln. Um überhaupt von Gewinnern und Verlierern zu sprechen, muss man die Regeln, nach denen gespielt wird, sehr gut kennen. Verbieten die Regeln Taschenrechner und vorab bekannte Antworten, gewinnt das Kind, das einfach multiplizieren kann, weil alle anderen disqualifiziert werden.</p>
+<p>Es gibt sogar jemanden, der unschlagbar ist: wer die Zukunft sieht. Kann irgendwer den schlagen, der die Zukunft sieht? Ich glaube nicht, außer die Regeln verbieten es.</p>
+<p>Was mir geblieben ist: In Spielen werden die Regeln ausgesprochen, im Leben viele nicht. Und es gibt eine stillschweigende Regel, die viel Frust erzeugt: Man geht davon aus, dass die Regeln eingehalten werden. Wenn jemand gewinnt, indem er sie bricht, fragt sich, wer fair gespielt hat, ob er das Spiel falsch verstanden hat.</p>
+<blockquote>Wer die Spielregeln nicht kennt, kann das Spiel verlieren.<br>Wer die Spielregeln falsch versteht, landet in der Frustration.</blockquote>
+'''

@@ -1,0 +1,250 @@
+{% extends "_notebook.html" %}
+{% block title %}Brayan Vera{% endblock %}
+{% block description %}{{ t.meta.description|attr }}{% endblock %}
+{% block og_type %}profile{% endblock %}
+{% block head_extra %}
+{% if lang == default_lang %}
+  <script>
+    // Primera visita a la portada en español: si el navegador está en inglés o alemán, ofrecer ese idioma.
+    try {
+      if (!localStorage.getItem('lang')) {
+        const l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+        if (l === 'en' || l === 'de') location.replace('/' + l + '/');
+      }
+    } catch (e) {}
+  </script>
+{% endif %}
+{% endblock %}
+{% block katex_css %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+{% endblock %}
+{% block style %}
+  <style>
+    .hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); column-gap: 64px; align-items: start; padding: 54px 0 10px; }
+    .hero .title { margin-top: 14px; }
+    @media (max-width: 1040px) { .hero { grid-template-columns: 1fr; } .hero .figure { max-width: 560px; margin-top: 36px; } }
+
+    #bloch { width: 100%; aspect-ratio: 1 / 0.92; display: block; cursor: grab; touch-action: none; }
+    #bloch:active { cursor: grabbing; }
+    .bloch-hint { position: absolute; top: 10px; right: 12px; font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+    #bloch-history { color: var(--ink-3); }
+
+    #tp-circuit { width: 100%; display: block; padding: 10px 6px 0; }
+    #tp-circuit text { font-family: var(--font); }
+    .c-label { font-size: 15px; font-style: italic; fill: var(--ink); }
+    .c-owner { font-family: var(--mono) !important; font-size: 9.5px; fill: var(--ink-3); letter-spacing: .06em; text-transform: uppercase; }
+    .c-wire { stroke: var(--ink); stroke-width: 1; }
+    .c-classic { stroke-width: .8; }
+    .c-classic-v { stroke: var(--ink); stroke-width: .8; }
+    .c-box { fill: var(--paper); stroke: var(--ink); stroke-width: 1.1; }
+    .c-gate { font-size: 16px; text-anchor: middle; fill: var(--ink); font-style: italic; }
+    .c-dot { fill: var(--ink); }
+    .c-target { fill: var(--paper); stroke: var(--ink); stroke-width: 1.1; }
+    .c-ctl { stroke: var(--ink); stroke-width: 1.1; }
+    .c-meter { fill: none; stroke: var(--ink); stroke-width: 1.1; }
+    .c-bit { font-family: var(--mono) !important; font-size: 13px; fill: var(--accent); }
+    .c-out { font-size: 16px; font-style: italic; fill: var(--accent); }
+    .c-todo { opacity: .28; }
+    .c-now .c-box, .c-now .c-target { stroke: var(--accent); stroke-width: 1.8; }
+    .c-now .c-gate, .c-now .c-dot { fill: var(--accent); }
+    .c-now .c-ctl, .c-now .c-meter, .c-now .c-classic-v { stroke: var(--accent); stroke-width: 1.6; }
+
+    #tp-bars { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; padding: 14px 14px 10px; border-top: 1px solid var(--rule); }
+    .tp-col { display: flex; flex-direction: column; align-items: center; gap: 5px; transition: opacity .3s; }
+    .tp-col.zero { opacity: .35; }
+    .tp-phase { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--rule-2); position: relative; }
+    .tp-phase i { position: absolute; left: 50%; top: 50%; width: 8px; height: 1.5px; background: var(--indigo); transform-origin: 0 50%; margin-top: -.75px; transition: transform .4s; }
+    .tp-col.zero .tp-phase i { opacity: 0; }
+    .tp-track { width: 100%; max-width: 34px; height: 96px; background: var(--paper); border: 1px solid var(--rule); position: relative; }
+    .tp-bar { position: absolute; left: 0; right: 0; bottom: 0; background: var(--accent); transition: height .45s cubic-bezier(.2,.7,.2,1); }
+    .tp-p { font-family: var(--mono); font-size: 10.5px; color: var(--ink-2); }
+    .tp-k { font-size: 14px; font-style: italic; }
+    #tp-step { padding: 12px 14px; border-top: 1px solid var(--rule); font-size: 16px; line-height: 1.45; min-height: 70px; }
+    #tp-step b { font-weight: 500; }
+    @media (max-width: 600px) { #tp-bars { gap: 3px; padding: 12px 6px 8px; } .tp-k { font-size: 12px; } .tp-p { font-size: 9px; } }
+
+    .pipeline { font-family: var(--mono); font-size: 13px; color: var(--ink-2); padding: 16px; border: 1px solid var(--rule); background: var(--paper-2); overflow-x: auto; white-space: nowrap; margin: 6px 0 8px; }
+    .pipeline b { color: var(--ink); font-weight: 500; }
+    .pipeline i { color: var(--accent); font-style: normal; }
+  </style>
+{% endblock %}
+
+{% block main %}
+  <main class="page">
+
+    <section class="hero">
+      <div>
+        <div class="kicker">{{ t.hero.kicker }}</div>
+        <h1 class="title">{{ t.hero.title }}</h1>
+        <div class="byline">
+          <span><b>Brayan Vera</b></span>
+          <span>{{ t.hero.affiliation }}</span>
+          <span>Bogotá</span>
+        </div>
+        <div class="abstract">
+          <p><span class="label">{{ t.hero.abstract_label }}</span> {{ t.hero.abstract_1 }}</p>
+          <p>{{ t.hero.abstract_2 }}</p>
+        </div>
+      </div>
+
+      <figure class="figure fade">
+        <div class="frame">
+          <span class="bloch-hint">{{ t.bloch.hint }}</span>
+          <canvas id="bloch" aria-label="{{ t.bloch.label|attr }}"></canvas>
+          <div class="controls" role="group" aria-label="{{ t.bloch.gates|attr }}">
+            {% for g in ['H', 'X', 'Y', 'Z', 'S', 'T'] %}<button class="gate" data-gate="{{ g }}">{{ g }}</button>
+            {% endfor %}
+            <span class="sep"></span>
+            <button class="gate primary" id="bloch-measure">{{ t.bloch.measure }}</button>
+            <button class="gate" id="bloch-reset" aria-label="{{ t.bloch.reset|attr }}">|0⟩</button>
+          </div>
+          <div class="readout">
+            <span id="bloch-state"></span>
+            <span id="bloch-probs"></span>
+            <span id="bloch-history"></span>
+            <span id="bloch-counts"></span>
+          </div>
+        </div>
+        <figcaption><b>{{ t.fig }} 1</b>{{ t.bloch.caption }}</figcaption>
+      </figure>
+    </section>
+
+    <!-- §1 -->
+    <section class="section row" id="quantum">
+      <div class="main">
+        <div class="section-head"><span class="num">§1</span><h2>{{ t.quantum.heading }}</h2></div>
+        <p class="lede">{{ t.quantum.lede }}</p>
+        <p>{{ t.quantum.p2 }}</p>
+
+        <figure class="figure fade" style="margin-top:26px">
+          <div class="frame">
+            <svg id="tp-circuit" role="img" aria-label="{{ t.teleport.circuit_label|attr }}"></svg>
+            <div id="tp-bars" aria-label="{{ t.teleport.bars_label|attr }}"></div>
+            <div id="tp-step" aria-live="polite"></div>
+            <div class="controls">
+              <button class="gate" id="tp-prev">{{ t.teleport.prev }}</button>
+              <button class="gate primary" id="tp-next">{{ t.teleport.next }}</button>
+              <button class="gate" id="tp-reset">{{ t.teleport.reset }}</button>
+              <span class="sep"></span>
+              <label class="range">θ <input type="range" id="tp-theta" min="0" max="3.1416" step="0.01" value="1.1"></label>
+              <label class="range">φ <input type="range" id="tp-phi" min="0" max="6.2832" step="0.01" value="0.9"></label>
+              <button class="gate" id="tp-from-bloch">{{ t.teleport.from_bloch }}</button>
+            </div>
+            <div class="readout" id="tp-result"></div>
+          </div>
+          <figcaption><b>{{ t.fig }} 2</b>{{ t.teleport.caption }}</figcaption>
+        </figure>
+
+        <p>{{ t.quantum.p3 }}</p>
+      </div>
+      <aside class="side">
+        <div class="box">
+          <h4>{{ t.now.heading }}</h4>
+          <ul>
+            <li>{{ t.now.courses }}</li>
+            <li>{{ t.now.reading }}</li>
+          </ul>
+        </div>
+        <p class="sidenote"><span class="n">1</span>{{ t.quantum.note_1 }}</p>
+        <p class="sidenote"><span class="n">2</span>{{ t.quantum.note_2 }}</p>
+      </aside>
+    </section>
+
+    <!-- §2 -->
+    <section class="section row" id="ai">
+      <div class="main">
+        <div class="section-head"><span class="num">§2</span><h2>{{ t.ai.heading }}</h2></div>
+        <p class="lede">{{ t.ai.lede }}</p>
+        <h3>chesscoach</h3>
+        <p>{{ t.ai.chesscoach }}</p>
+        <div class="pipeline" aria-label="{{ t.ai.pipeline_label|attr }}"><b>sync</b> <i>→</i> <b>analyze</b> <i>→</i> <b>report</b> <i>→</i> <b>train</b> <i>→</i> <b>plan</b> <i>→</i> <b>progress</b></div>
+        <h3>LexiRead</h3>
+        <p>{{ t.ai.lexiread }}</p>
+        <h3>{{ t.ai.apps_heading }}</h3>
+        <p>{{ t.ai.apps }}</p>
+      </div>
+      <aside class="side">
+        <p class="sidenote">{{ t.ai.stack }}</p>
+        <p class="sidenote">{{ t.ai.pinns }}</p>
+      </aside>
+    </section>
+
+    <!-- §3 -->
+    <section class="section row" id="software">
+      <div class="main">
+        <div class="section-head"><span class="num">§3</span><h2>Software</h2></div>
+        <p class="lede">{{ t.software.lede }}</p>
+        <div class="instruments">
+          {% for app in t.software.apps %}
+          <a class="instrument" href="{{ url(app.id) }}">
+            <img src="/assets/img/{{ app.id }}/icon.png" alt="">
+            <div><h3>{{ app.name }}</h3><p>{{ app.text }}</p></div>
+            <div class="meta">{{ app.meta }}<br><span class="arrow">{{ t.software.view }}</span></div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <aside class="side">
+        <p class="sidenote">{{ t.software.numbers }}</p>
+        <p class="sidenote">{{ t.software.flutter }}</p>
+      </aside>
+    </section>
+
+    <!-- §4 -->
+    <section class="section row" id="notes">
+      <div class="main">
+        <div class="section-head"><span class="num">§4</span><h2>{{ c.nav.notes }}</h2></div>
+        <p>{{ t.notes.intro }}</p>
+        <ul class="notes-list">
+          {% for e in essays %}
+          <li><a href="{{ e.path }}"><span class="t">{{ e.title }}</span><span class="d">{{ date(e.date, short=True) }}</span><span class="s">{{ e.description }}</span></a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <aside class="side">
+        <p class="sidenote"><b>{{ t.notes.fragment_label }}</b> <i>«{{ t.notes.fragment }}»</i></p>
+        <p class="sidenote"><a href="{{ url('notes') }}">{{ t.notes.all }}</a></p>
+      </aside>
+    </section>
+
+    <!-- §5 -->
+    <section class="section row" id="cv">
+      <div class="main">
+        <div class="section-head"><span class="num">§5</span><h2>{{ c.nav.cv }}</h2></div>
+        <ul class="timeline">
+          {% for item in t.cv.entries %}
+          <li><span class="when">{{ item.when }}</span><div>{{ item.title }}<span class="d">{{ item.text }}</span></div></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <aside class="side">
+        <div class="box">
+          <h4>{{ t.cv.languages_heading }}</h4>
+          <ul>{% for l in t.cv.languages %}<li>{{ l }}</li>{% endfor %}</ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- §6 -->
+    <section class="section row" id="contact">
+      <div class="main">
+        <div class="section-head"><span class="num">§6</span><h2>{{ t.contact.heading }}</h2></div>
+        <p class="contact-line">{{ t.contact.line }} <a href="mailto:brayanveradev@gmail.com">brayanveradev@gmail.com</a></p>
+        <p class="muted">{{ t.contact.code }} <a href="https://github.com/laraizdepi">github.com/laraizdepi</a>.</p>
+      </div>
+    </section>
+
+    <footer class="colophon">
+      <div class="row">
+        <div class="main">{{ c.colophon }}</div>
+        <div class="side">© <span id="year">2026</span> Brayan Vera</div>
+      </div>
+    </footer>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="/assets/site/notebook.js"></script>
+  <script type="module" src="/assets/site/quantum.js"></script>
+{% endblock %}

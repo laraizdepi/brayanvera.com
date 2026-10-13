@@ -1,0 +1,46 @@
+order = 4
+date = 2026-03-09
+minutes = 2
+
+[slug]
+es = "la-frecuencia"
+en = "frequency-is-what-matters"
+de = "auf-die-frequenz-kommt-es-an"
+
+[title]
+es = "Lo que importa es la frecuencia"
+en = "Frequency is what matters"
+de = "Auf die Frequenz kommt es an"
+
+[description]
+es = "Una derivada aplicada a los malos hábitos."
+en = "A derivative applied to bad habits."
+de = "Eine Ableitung, angewandt auf schlechte Gewohnheiten."
+
+[side]
+es = '''<p class="sidenote">Hay dos tipos de problemas de hábitos: los que se resuelven quitándolos por completo y los que exigen encontrar un balance. Esta nota trata de los segundos.</p>'''
+en = '''<p class="sidenote">There are two kinds of habit problems: the ones you solve by cutting them out completely, and the ones that require finding a balance. This note is about the second kind.</p>'''
+de = '''<p class="sidenote">Es gibt zwei Arten von Gewohnheitsproblemen: solche, die man löst, indem man sie ganz streicht, und solche, bei denen man ein Gleichgewicht finden muss. Diese Notiz handelt von der zweiten Art.</p>'''
+
+[body]
+es = '''
+<p>Llevo días pensando que, si quiero deshacer un mal hábito, lo que tengo que hacer es posponerlo.</p>
+<p>Tenía un paquete de mecato en el escritorio y llevaba días con ganas de comérmelo. Como estoy tratando de bajarle a los paquetes, me decía «mañana me lo como». Y así pasaron varios días.</p>
+<p>Ahí caí en cuenta de que lo que importa es la velocidad con la que me como las cosas malas. Un paquete de papas al día es mucho peor que uno al mes.</p>
+<p>Lo noté primero con el alcohol. Cualquier persona puede tomarse un litro de alcohol: si hay tiempo suficiente, quizá ni siquiera se emborrache. Un sorbo por semana, durante suficientes semanas, también suma un litro.</p>
+<p>En física lo diría así: el daño no depende de la cantidad, sino de la tasa. No importa tanto <i>Q</i> como <i>dQ/dt</i>. Posponer no es prohibirse algo, es bajar la frecuencia. Y a veces bajar la frecuencia es todo lo que hace falta.</p>
+'''
+en = '''
+<p>For days I've been thinking that if I want to undo a bad habit, what I have to do is postpone it.</p>
+<p>I had a bag of snacks on my desk and had been craving it for days. Since I'm trying to cut back on junk food, I kept telling myself, “I'll eat it tomorrow.” And several days went by like that.</p>
+<p>That's when it hit me: what matters is how fast I eat the bad stuff. A bag of chips a day is much worse than one a month.</p>
+<p>I first noticed it with alcohol. Anyone can drink a liter of alcohol: given enough time, they might not even get drunk. One sip a week, over enough weeks, also adds up to a liter.</p>
+<p>In physics I'd put it like this: the damage doesn't depend on the amount, but on the rate. <i>Q</i> matters less than <i>dQ/dt</i>. Postponing isn't forbidding yourself something; it's lowering the frequency. And sometimes lowering the frequency is all it takes.</p>
+'''
+de = '''
+<p>Seit Tagen denke ich: Wenn ich eine schlechte Gewohnheit loswerden will, muss ich sie aufschieben.</p>
+<p>Auf meinem Schreibtisch lag eine Tüte Knabberzeug, und ich hatte seit Tagen Lust darauf. Weil ich gerade versuche, weniger davon zu essen, sagte ich mir: „Morgen esse ich sie.“ Und so vergingen mehrere Tage.</p>
+<p>Da wurde mir klar: Es kommt darauf an, wie schnell ich das Schlechte esse. Eine Tüte Chips am Tag ist viel schlimmer als eine im Monat.</p>
+<p>Zum ersten Mal ist mir das beim Alkohol aufgefallen. Jeder kann einen Liter Alkohol trinken: Hat man genug Zeit, wird man vielleicht nicht einmal betrunken. Ein Schluck pro Woche ergibt über genug Wochen ebenfalls einen Liter.</p>
+<p>In der Physik würde ich sagen: Der Schaden hängt nicht von der Menge ab, sondern von der Rate. Nicht <i>Q</i> zählt, sondern <i>dQ/dt</i>. Aufschieben heißt nicht, sich etwas zu verbieten, sondern die Frequenz zu senken. Und manchmal ist das alles, was es braucht.</p>
+'''

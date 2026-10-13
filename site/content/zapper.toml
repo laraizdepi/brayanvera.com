@@ -1,0 +1,355 @@
+# Landing de Zapper. La app está en inglés y español.
+
+[meta.title]
+es = "Zapper — El control de tu televisor Samsung, hecho para el Mac"
+en = "Zapper — The remote for your Samsung TV, made for the Mac"
+de = "Zapper — Die Fernbedienung für deinen Samsung-Fernseher, gemacht für den Mac"
+
+[meta.description]
+es = "Zapper pone un control remoto Samsung completo en tu Mac: en una ventana, en la barra de menús y en tu teclado. Nativo, privado, sin cuentas."
+en = "Zapper puts a full Samsung remote on your Mac: in a window, in the menu bar and on your keyboard. Native, private, no account."
+de = "Zapper bringt eine komplette Samsung-Fernbedienung auf deinen Mac: im Fenster, in der Menüleiste und auf der Tastatur. Nativ, privat, ohne Konto."
+
+[meta.og]
+es = "Nativo. Pensado para el teclado. Privado. Sin suscripción."
+en = "Native. Keyboard-first. Private. No subscription."
+de = "Nativ. Für die Tastatur gemacht. Privat. Kein Abo."
+
+[nav.try]
+es = "Pruébalo"
+en = "Try it"
+de = "Ausprobieren"
+
+# ---------- Portada ----------
+[hero.eyebrow]
+es = "Para Samsung Smart TV · macOS"
+en = "For Samsung Smart TVs · macOS"
+de = "Für Samsung Smart TVs · macOS"
+
+[hero.title]
+es = "El control de tu televisor, <span>hecho para el Mac</span>."
+en = "The remote for your TV, <span>made for the Mac</span>."
+de = "Die Fernbedienung für deinen Fernseher, <span>gemacht für den Mac</span>."
+
+[hero.sub]
+es = "En una ventana, en la barra de menús y en tu teclado. Encuentra tu televisor solo, se conecta en segundos y se mantiene conectado."
+en = "In a window, in the menu bar and on your keyboard. It finds your TV by itself, connects in seconds and stays connected."
+de = "Im Fenster, in der Menüleiste und auf deiner Tastatur. Zapper findet deinen Fernseher selbst, verbindet sich in Sekunden und bleibt verbunden."
+
+[hero.try]
+es = "Pruébalo aquí mismo"
+en = "Try it right here"
+de = "Gleich hier ausprobieren"
+
+[hero.see]
+es = "Ver funciones"
+en = "See features"
+de = "Funktionen ansehen"
+
+[hero.req]
+es = "macOS 13 o posterior · Apple silicon e Intel · Español e inglés"
+en = "macOS 13 or later · Apple silicon and Intel · English and Spanish"
+de = "macOS 13 oder neuer · Apple Silicon und Intel · Englisch und Spanisch"
+
+[hero.alt]
+es = "Zapper en modo oscuro y claro"
+en = "Zapper in dark and light mode"
+de = "Zapper im dunklen und hellen Modus"
+
+# ---------- Por qué ----------
+[why.eyebrow]
+es = "Por qué"
+en = "Why"
+de = "Warum"
+
+[why.title]
+es = "El control siempre está en la otra habitación.<br><span>Tu Mac no.</span>"
+en = "Your TV remote is always in the other room.<br><span>Your Mac isn't.</span>"
+de = "Die Fernbedienung liegt immer im anderen Zimmer.<br><span>Dein Mac nicht.</span>"
+
+[why.lead]
+es = "Las apps de control remoto para Mac suelen ser apps de iPhone estiradas o están abandonadas. Zapper está hecho para el Mac desde la primera línea: SwiftUI, sin vistas web, sin anuncios y sin cuentas."
+en = "Remote apps on the Mac tend to be stretched-out iPhone apps or long abandoned. Zapper is built for the Mac from the first line: SwiftUI, no web views, no ads and no account."
+de = "Fernbedienungs-Apps für den Mac sind meist aufgeblähte iPhone-Apps oder längst aufgegeben. Zapper ist von der ersten Zeile an für den Mac gebaut: SwiftUI, keine Web-Views, keine Werbung, kein Konto."
+
+# ---------- Demo ----------
+[demo.title]
+es = "Tu teclado <span>es el control</span>."
+en = "Your keyboard <span>is the remote</span>."
+de = "Deine Tastatur <span>ist die Fernbedienung</span>."
+
+[demo.lead]
+es = "Usa las flechas, <kbd>Return</kbd>, <kbd>Esc</kbd>, <kbd>+</kbd> <kbd>−</kbd> o <kbd>P</kbd>, o pulsa los botones. Es una simulación de cómo se siente Zapper con tu televisor."
+en = "Use the arrow keys, <kbd>Return</kbd>, <kbd>Esc</kbd>, <kbd>+</kbd> <kbd>−</kbd> or <kbd>P</kbd>, or press the buttons. It's a simulation of how Zapper feels with your TV."
+de = "Nutze die Pfeiltasten, <kbd>Return</kbd>, <kbd>Esc</kbd>, <kbd>+</kbd> <kbd>−</kbd> oder <kbd>P</kbd>, oder drück die Knöpfe. Eine Simulation davon, wie sich Zapper mit deinem Fernseher anfühlt."
+
+[demo.off]
+es = "pulsa P para encender"
+en = "press P to turn it on"
+de = "P drücken zum Einschalten"
+
+[demo.room]
+es = "Sala de estar"
+en = "Living Room"
+de = "Wohnzimmer"
+
+[demo.connected]
+es = "Conectado"
+en = "Connected"
+de = "Verbunden"
+
+[demo.remote]
+es = "Control remoto simulado"
+en = "Simulated remote"
+de = "Simulierte Fernbedienung"
+
+[demo.hint]
+es = "Mantén pulsada una tecla y se repite, como el control de verdad."
+en = "Hold a key and it repeats, just like the real thing."
+de = "Halte eine Taste gedrückt, und sie wiederholt sich, wie bei der echten Fernbedienung."
+
+[demo.osd.play]
+es = "▶ Reproducir"
+en = "▶ Play"
+de = "▶ Wiedergabe"
+
+[demo.osd.pause]
+es = "❚❚ Pausa"
+en = "❚❚ Pause"
+de = "❚❚ Pause"
+
+[demo.osd.muted]
+es = "🔇 Silencio"
+en = "🔇 Muted"
+de = "🔇 Stumm"
+
+[demo.osd.source]
+es = "Fuente: HDMI 1"
+en = "Source: HDMI 1"
+de = "Quelle: HDMI 1"
+
+[demo.osd.menu]
+es = "Menú"
+en = "Menu"
+de = "Menü"
+
+[demo.osd.type]
+es = "Escribe en el TV…"
+en = "Type on your TV…"
+de = "Auf dem Fernseher tippen…"
+
+[demo.aria.power]
+es = "Encender o apagar"
+en = "Power"
+de = "Ein/Aus"
+
+[demo.aria.up]
+es = "Arriba"
+en = "Up"
+de = "Hoch"
+
+[demo.aria.down]
+es = "Abajo"
+en = "Down"
+de = "Runter"
+
+[demo.aria.left]
+es = "Izquierda"
+en = "Left"
+de = "Links"
+
+[demo.aria.right]
+es = "Derecha"
+en = "Right"
+de = "Rechts"
+
+[demo.aria.back]
+es = "Atrás"
+en = "Back"
+de = "Zurück"
+
+[demo.aria.home]
+es = "Inicio"
+en = "Home"
+de = "Home"
+
+[demo.aria.play]
+es = "Reproducir o pausar"
+en = "Play or pause"
+de = "Wiedergabe oder Pause"
+
+[demo.aria.volup]
+es = "Subir volumen"
+en = "Volume up"
+de = "Lauter"
+
+[demo.aria.voldown]
+es = "Bajar volumen"
+en = "Volume down"
+de = "Leiser"
+
+[demo.aria.mute]
+es = "Silenciar"
+en = "Mute"
+de = "Stumm"
+
+[demo.aria.chup]
+es = "Canal siguiente"
+en = "Channel up"
+de = "Kanal hoch"
+
+[demo.aria.chdown]
+es = "Canal anterior"
+en = "Channel down"
+de = "Kanal runter"
+
+# ---------- Funciones ----------
+[features.title]
+es = "Un control de verdad, <span>no una rejilla de botones</span>."
+en = "A real remote, <span>not a grid of buttons</span>."
+de = "Eine echte Fernbedienung, <span>kein Raster aus Knöpfen</span>."
+
+[features.gallery_alts]
+es = ["Zapper en modo oscuro", "Zapper en modo claro", "Teclado numérico"]
+en = ["Zapper in dark mode", "Zapper in light mode", "Number pad"]
+de = ["Zapper im dunklen Modus", "Zapper im hellen Modus", "Ziffernblock"]
+
+[[features.entries]]
+icon = "🎛"
+[features.entries.title]
+es = "Control completo"
+en = "The full remote"
+de = "Die komplette Fernbedienung"
+[features.entries.text]
+es = "Encendido, fuente, cruceta, atrás, inicio, reproducir y pausar, volumen, canales, teclado numérico y las apps de tu TV a un clic."
+en = "Power, source, a directional pad, back, home, play and pause, volume, channels, a number pad and your TV's own apps one click away."
+de = "Ein/Aus, Quelle, Steuerkreuz, Zurück, Home, Wiedergabe und Pause, Lautstärke, Kanäle, Ziffernblock und die Apps deines Fernsehers mit einem Klick."
+
+[[features.entries]]
+icon = "⌨️"
+[features.entries.title]
+es = "Pensado para el teclado"
+en = "Keyboard-first"
+de = "Für die Tastatur gemacht"
+[features.entries.text]
+es = "Las flechas mueven, Retorno selecciona, Esc vuelve y Espacio reproduce y pausa. Las teclas se repiten al mantenerlas."
+en = "Arrow keys move, Return selects, Esc goes back and Space plays and pauses. Hold a key and it repeats."
+de = "Pfeiltasten bewegen, Return wählt aus, Esc geht zurück, die Leertaste spielt und pausiert. Gedrückt halten wiederholt."
+
+[[features.entries]]
+icon = "📍"
+[features.entries.title]
+es = "En la barra de menús"
+en = "In the menu bar"
+de = "In der Menüleiste"
+[features.entries.text]
+es = "Un mini control con lo esencial, a un clic mientras trabajas."
+en = "A mini remote with the essentials, one click away while you work."
+de = "Eine Mini-Fernbedienung mit dem Wichtigsten, einen Klick entfernt, während du arbeitest."
+
+[[features.entries]]
+icon = "🔤"
+[features.entries.title]
+es = "Escribe en el TV"
+en = "Type on your TV"
+de = "Auf dem Fernseher tippen"
+[features.entries.text]
+es = "Busca en YouTube o Netflix con el teclado del Mac en vez de picotear un teclado en pantalla."
+en = "Search YouTube or Netflix from your Mac keyboard instead of pecking at an on-screen keyboard."
+de = "Such auf YouTube oder Netflix mit der Mac-Tastatur, statt auf einer Bildschirmtastatur herumzupicken."
+
+[[features.entries]]
+icon = "🔌"
+[features.entries.title]
+es = "Se mantiene conectado"
+en = "Stays connected"
+de = "Bleibt verbunden"
+[features.entries.text]
+es = "Se reconecta solo al despertar el Mac, al reiniciar el TV o si el router le cambia la IP, sin perder pulsaciones."
+en = "It reconnects by itself when your Mac wakes, when the TV restarts or when the router gives it a new IP, without losing key presses."
+de = "Verbindet sich selbst neu, wenn der Mac aufwacht, der Fernseher neu startet oder der Router ihm eine neue IP gibt, ohne Tastendrücke zu verlieren."
+
+[[features.entries]]
+icon = "⚡️"
+[features.entries.title]
+es = "Enciende el televisor"
+en = "Turns the TV on"
+de = "Schaltet den Fernseher ein"
+[features.entries.text]
+es = "Con Wake-on-LAN, Zapper despierta un televisor que está en reposo."
+en = "With Wake-on-LAN, Zapper can wake a TV that's in standby."
+de = "Mit Wake-on-LAN weckt Zapper einen Fernseher aus dem Standby."
+
+# ---------- Configuración ----------
+[setup.eyebrow]
+es = "Configuración"
+en = "Setup"
+de = "Einrichtung"
+
+[setup.title]
+es = "De la caja al sofá <span>en menos de un minuto</span>."
+en = "From download to sofa <span>in under a minute</span>."
+de = "Vom Download aufs Sofa <span>in unter einer Minute</span>."
+
+[setup.steps]
+es = [["Abre Zapper", "Una bienvenida corta, sin crear cuentas."], ["Elige tu televisor", "Zapper lo busca por SSDP y escanea tu subred. Si tu router aísla dispositivos, escribes la IP."], ["Apruébalo en el TV", "Una sola vez. La clave de emparejamiento se guarda solo en tu Mac."]]
+en = [["Open Zapper", "A short welcome, no account to create."], ["Pick your TV", "Zapper finds it via SSDP and scans your subnet. If your router isolates devices, you type in the IP."], ["Approve it on the TV", "Just once. The pairing key is stored only on your Mac."]]
+de = [["Zapper öffnen", "Eine kurze Begrüßung, kein Konto nötig."], ["Fernseher wählen", "Zapper findet ihn per SSDP und durchsucht dein Subnetz. Isoliert dein Router Geräte, gibst du die IP ein."], ["Am Fernseher bestätigen", "Nur ein einziges Mal. Der Kopplungsschlüssel wird nur auf deinem Mac gespeichert."]]
+
+[setup.alts]
+es = ["Bienvenida", "Elegir televisor", "Aprobar en el televisor", "Control en la barra de menús"]
+en = ["Welcome", "Choose your TV", "Approve on the TV", "Menu bar remote"]
+de = ["Willkommen", "Fernseher wählen", "Am Fernseher bestätigen", "Fernbedienung in der Menüleiste"]
+
+# ---------- Atajos ----------
+[shortcuts.eyebrow]
+es = "Atajos de teclado"
+en = "Keyboard shortcuts"
+de = "Tastaturkurzbefehle"
+
+[shortcuts.title]
+es = "Todo, <span>sin tocar el ratón</span>."
+en = "Everything, <span>without touching the mouse</span>."
+de = "Alles, <span>ohne die Maus anzufassen</span>."
+
+[shortcuts.lead]
+es = "Pulsa cualquiera de estas teclas y la fila se ilumina."
+en = "Press any of these keys and the row lights up."
+de = "Drück eine dieser Tasten, und die Zeile leuchtet auf."
+
+[shortcuts.space]
+es = "Espacio"
+en = "Space"
+de = "Leertaste"
+
+# Cada fila: [acción de la columna 1, acción de la columna 2]
+[shortcuts.rows]
+es = [["Moverse", "Subir / bajar volumen"], ["OK", "Silenciar"], ["Atrás", "Canal siguiente / anterior"], ["Reproducir / pausar", "Dígitos de canal"], ["Inicio", "Info"], ["Fuente", "Encender / apagar el TV"], ["Escribir en el TV", "Ver todos los atajos"]]
+en = [["Move", "Volume up / down"], ["OK", "Mute"], ["Back", "Channel up / down"], ["Play / pause", "Channel digits"], ["Home", "Info"], ["Source", "Turn the TV on / off"], ["Type on the TV", "Show all shortcuts"]]
+de = [["Bewegen", "Lauter / leiser"], ["OK", "Stumm"], ["Zurück", "Kanal hoch / runter"], ["Wiedergabe / Pause", "Kanalziffern"], ["Home", "Info"], ["Quelle", "Fernseher ein / aus"], ["Auf dem TV tippen", "Alle Kurzbefehle zeigen"]]
+
+[shortcuts.requirements]
+es = "Requisitos: un Mac con macOS 13 Ventura o posterior y un Samsung Smart TV con Tizen, de 2016 o más reciente, en la misma red. Para encender el TV desde Zapper, activa en el televisor <i>Ajustes › General › Red › Ajustes expertos › Encender con móvil</i>."
+en = "Requirements: a Mac with macOS 13 Ventura or later and a Samsung Smart TV running Tizen, 2016 or newer, on the same network. To turn the TV on from Zapper, enable <i>Settings › General › Network › Expert Settings › Power On with Mobile</i> on the TV."
+de = "Voraussetzungen: ein Mac mit macOS 13 Ventura oder neuer und ein Samsung Smart TV mit Tizen, ab Baujahr 2016, im selben Netzwerk. Damit Zapper den Fernseher einschalten kann, aktiviere am Fernseher <i>Einstellungen › Allgemein › Netzwerk › Experteneinstellungen › Mit Mobilgerät einschalten</i>."
+
+[shortcuts.privacy]
+es = '''<b style="color:var(--text-2)">Privacidad.</b> Zapper solo habla con tu televisor, dentro de tu red. Sin cuentas, sin analíticas, sin informes de errores y sin servidores.'''
+en = '''<b style="color:var(--text-2)">Privacy.</b> Zapper talks only to your TV, on your own network. No account, no analytics, no crash reporting and no servers.'''
+de = '''<b style="color:var(--text-2)">Datenschutz.</b> Zapper spricht nur mit deinem Fernseher, in deinem eigenen Netzwerk. Kein Konto, keine Analytics, keine Absturzberichte, keine Server.'''
+
+# ---------- Cierre ----------
+[final.title]
+es = "Deja el control en el sofá."
+en = "Leave the remote on the sofa."
+de = "Lass die Fernbedienung auf dem Sofa."
+
+[final.lead]
+es = "Zapper está en acceso anticipado. Escribe y recibirás la versión para Mac."
+en = "Zapper is in early access. Send an email and you'll get the Mac version."
+de = "Zapper ist im Early Access. Schreib eine E-Mail, und du bekommst die Mac-Version."
+
+[final.disclaimer]
+es = "Zapper es una app independiente y no está afiliada ni respaldada por Samsung Electronics. Samsung y Smart TV son marcas de Samsung Electronics Co., Ltd."
+en = "Zapper is an independent app and is not affiliated with or endorsed by Samsung Electronics. Samsung and Smart TV are trademarks of Samsung Electronics Co., Ltd."
+de = "Zapper ist eine unabhängige App und steht in keiner Verbindung zu Samsung Electronics, noch wird sie von Samsung unterstützt. Samsung und Smart TV sind Marken der Samsung Electronics Co., Ltd."

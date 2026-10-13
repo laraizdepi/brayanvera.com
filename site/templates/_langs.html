@@ -1,0 +1,1 @@
+<span class="langs" role="group" aria-label="{{ c.lang_label }}">{% for l in langs %}<a href="{{ alternates[l] }}" hreflang="{{ l }}" lang="{{ l }}" data-lang="{{ l }}" title="{{ config.lang[l].name }}"{% if l == lang %} aria-current="true"{% endif %}>{{ config.lang[l].short }}</a>{% endfor %}</span>

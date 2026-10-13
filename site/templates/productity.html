@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include "_product_meta.html" %}
+  <meta property="og:image" content="{{ base_url }}/assets/img/productity/reloj.png">
+  <meta name="theme-color" content="#0d0e11">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0e11; --bg-2: #13151a; --card: #17191f; --line: rgba(255,255,255,.08); --line-2: rgba(255,255,255,.14);
+      --text: #f2eee8; --text-2: #a9a49b; --text-3: #6f6b64;
+      --brand: #f26b21; --brand-2: #ff9a5c; --blue: #4c8dff; --green: #2fbf71; --violet: #a66cff;
+      --sans: "Inter", system-ui, -apple-system, sans-serif; --display: "Inter Tight", "Inter", system-ui, sans-serif;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    ::selection { background: rgba(242,107,33,.35); }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 600px) { .wrap { padding: 0 16px; } }
+
+    .bar { position: sticky; top: 0; z-index: 20; background: rgba(13,14,17,.78); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .bar.scrolled { border-bottom-color: var(--line); }
+    .bar-in { height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -.01em; }
+    .logo img { width: 30px; height: 30px; }
+    .links { display: flex; align-items: center; gap: 22px; font-size: 15px; }
+    .links > a { text-decoration: none; color: var(--text-2); }
+    .links > a:hover { color: var(--text); }
+    .langs { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--line-2); border-radius: 999px; font: 500 11.5px var(--sans); letter-spacing: .04em; }
+    .langs a { padding: 3px 8px; border-radius: 999px; text-decoration: none; color: var(--text-3); }
+    .langs a:hover { color: var(--text); }
+    .langs a[aria-current] { background: var(--text); color: var(--bg); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 500; font-size: 15.5px; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; border: 1px solid transparent; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-brand { background: var(--brand); color: #fff; }
+    .btn-brand:hover { box-shadow: 0 12px 40px -12px var(--brand); }
+    .btn-line { border-color: var(--line-2); color: var(--text); }
+    .btn-line:hover { background: rgba(255,255,255,.04); }
+    .links .btn { padding: 8px 16px; color: #fff; }
+    @media (max-width: 860px) { .links > a:not(.btn) { display: none; } .links { gap: 10px; } }
+    @media (max-width: 420px) { .links .btn { display: none; } }
+
+    .hero { padding: 90px 0 40px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; left: 50%; top: 0; width: 1200px; height: 760px; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(242,107,33,.16), transparent 70%); pointer-events: none; }
+    .eyebrow { font-size: 13px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-2); }
+    h1 { font-family: var(--display); font-weight: 600; font-size: clamp(44px, 7vw, 92px); line-height: 1; letter-spacing: -.04em; margin: 20px auto 22px; max-width: 980px; position: relative; }
+    h1 span { color: var(--brand); }
+    .sub { font-size: clamp(18px, 1.8vw, 21px); color: var(--text-2); max-width: 640px; margin: 0 auto 32px; position: relative; }
+    .cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; }
+    .req { margin-top: 18px; font-size: 13.5px; color: var(--text-3); position: relative; }
+
+    .desk { position: relative; max-width: 1080px; margin: 70px auto 0; height: 540px; }
+    .monitor { position: absolute; right: 0; top: 0; width: 66%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; background: #16171c; border: 1px solid var(--line); box-shadow: 0 40px 100px -30px rgba(0,0,0,.9); }
+    .monitor-page { position: absolute; inset: 7% 14%; background: #fbfaf7; border-radius: 4px; padding: 6% 7%; color: #1b1b1f; font-family: Georgia, "Times New Roman", serif; overflow: hidden; text-align: justify; }
+    .monitor-page h4 { margin: 0 0 10px; font-size: clamp(11px, 1.4vw, 17px); text-align: left; }
+    .monitor-page p { margin: 0 0 8px; font-size: clamp(7px, .85vw, 11px); line-height: 1.5; color: #333; }
+    .monitor-page .eq { text-align: center; font-style: italic; margin: 10px 0; font-size: clamp(9px, 1.1vw, 14px); }
+    .laptop { position: absolute; left: 0; bottom: 0; width: 52%; z-index: 2; }
+    .screen { aspect-ratio: 16 / 10.4; border-radius: 14px 14px 0 0; background: radial-gradient(ellipse at center, #121722 0%, #0b0d12 70%); border: 8px solid #1d1f25; border-bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 40px 100px -20px rgba(0,0,0,.9); }
+    .base { height: 14px; background: linear-gradient(180deg, #2a2c33, #15161a); border-radius: 0 0 12px 12px; margin: 0 -5%; }
+    .subject { display: flex; align-items: center; gap: 8px; font-size: clamp(9px, 1.05vw, 13px); letter-spacing: .18em; color: #8e93a3; font-weight: 500; }
+    .subject i { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); display: block; }
+    .time { font-weight: 200; font-size: clamp(54px, 9.5vw, 120px); line-height: 1; letter-spacing: -.02em; color: #eef0f7; margin: 14px 0 18px; font-variant-numeric: tabular-nums; }
+    .time.over { color: var(--brand-2); }
+    .dots { display: flex; gap: 7px; } .dots i { width: 9px; height: 9px; border-radius: 50%; display: block; }
+    .note { margin-top: 10px; font-size: clamp(9px, 1vw, 12px); color: #6f7486; }
+    @media (max-width: 760px) { .desk { height: auto; } .monitor { display: none; } .laptop { position: relative; width: 100%; } }
+
+    section { padding: 120px 0; }
+    h2 { font-family: var(--display); font-weight: 600; font-size: clamp(32px, 4.6vw, 56px); line-height: 1.04; letter-spacing: -.035em; margin: 14px 0 18px; }
+    h2 span { color: var(--brand); }
+    .lead { font-size: 19px; color: var(--text-2); margin: 0; max-width: 620px; }
+    .center { text-align: center; } .center .lead { margin: 0 auto; }
+
+    .split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 72px; align-items: center; }
+    .split > * { min-width: 0; }
+    .split.rev > :first-child { order: 2; }
+    @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 40px; } .split.rev > :first-child { order: 0; } }
+    .shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 40px 100px -30px rgba(0,0,0,.9); }
+    .list { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+    .list li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; color: var(--text-2); }
+    .list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; margin: 9px 0 0 6px; background: var(--brand); box-shadow: 0 0 12px var(--brand); }
+    .list b { color: var(--text); font-weight: 500; }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 56px; background: var(--line); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; text-align: left; }
+    .feature { background: var(--bg); padding: 30px; }
+    .feature .ic { font-size: 22px; }
+    .feature h3 { font-family: var(--display); font-weight: 600; font-size: 19px; margin: 14px 0 6px; letter-spacing: -.01em; }
+    .feature p { color: var(--text-2); margin: 0; font-size: 15.5px; }
+    @media (max-width: 960px) { .features { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .features { grid-template-columns: 1fr; } }
+
+    .float-shot { position: relative; }
+    .float-shot .mini { position: absolute; right: -6%; bottom: -10%; width: 46%; border-radius: 14px; box-shadow: 0 30px 60px -10px rgba(0,0,0,.8); border: 1px solid var(--line-2); }
+    @media (max-width: 900px) { .float-shot .mini { right: 4%; } }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 50px; text-align: left; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+    .card h3 { font-family: var(--display); font-size: 20px; font-weight: 600; margin: 0 0 8px; }
+    .card p { color: var(--text-2); margin: 0; font-size: 15.5px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 18px; text-align: left; }
+    .stat b { display: block; font-weight: 200; font-size: 54px; letter-spacing: -.03em; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; }
+    .stat b small { font-size: 20px; font-weight: 400; color: var(--text-2); }
+    .stat span { color: var(--text-2); font-size: 14.5px; }
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr 1fr; } }
+
+    .final { text-align: center; position: relative; overflow: hidden; }
+    .final::before { content: ""; position: absolute; left: 50%; top: 50%; width: 900px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(242,107,33,.18), transparent); pointer-events: none; }
+    .final > * { position: relative; }
+    .final img { width: 96px; height: 96px; margin: 0 auto 20px; filter: drop-shadow(0 18px 30px rgba(242,107,33,.4)); }
+
+    footer { border-top: 1px solid var(--line); padding: 30px 0 44px; font-size: 14px; color: var(--text-3); }
+    .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .foot .logo { font-size: 17px; } .foot .logo img { width: 24px; height: 24px; }
+    .foot-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .by { text-decoration: none; color: var(--text-2); border: 1px solid var(--line-2); padding: 6px 12px; border-radius: 999px; font-size: 13px; }
+    .by:hover { color: var(--text); }
+
+    .rv { opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s ease; }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="wrap bar-in">
+      <a href="{{ path }}" class="logo"><img src="/assets/img/productity/icon.png" alt="">Productity</a>
+      <nav class="links">
+        <a href="#funciones">{{ c.product.features }}</a>
+        <a href="#ipad">iPad</a>
+        <a href="#privacidad">{{ c.product.privacy }}</a>
+        {% include "_langs.html" %}
+        <a href="#acceso" class="btn btn-brand">{{ c.product.request }}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">{{ t.hero.eyebrow }}</div>
+        <h1>{{ t.hero.title }}</h1>
+        <p class="sub">{{ t.hero.sub }}</p>
+        <div class="cta">
+          <a href="#acceso" class="btn btn-brand">{{ c.product.request }}</a>
+          <a href="#funciones" class="btn btn-line">{{ t.hero.see }}</a>
+        </div>
+        <p class="req">{{ t.hero.req }}</p>
+
+        <div class="desk rv" aria-hidden="true">
+          <div class="monitor">
+            <div class="monitor-page">
+              <h4>{{ t.mock.heading }}</h4>
+              <p>{{ t.mock.p1 }}</p>
+              <div class="eq">Ĥ = ħω (â†â + ½)</div>
+              <p>{{ t.mock.p2 }}</p>
+              <div class="eq">Eₙ = ħω (n + ½),  n = 0, 1, 2, …</div>
+              <p>{{ t.mock.p3 }}</p>
+            </div>
+          </div>
+          <div class="laptop">
+            <div class="screen">
+              <div class="subject"><i></i>{{ t.mock.subject }}</div>
+              <div class="time" id="clock">45:00</div>
+              <div class="dots"><i style="background:var(--blue)"></i><i style="background:var(--green)"></i><i style="background:var(--violet)"></i><i style="border:1.5px solid var(--blue)"></i></div>
+              <div class="note" id="clock-note">{{ t.mock.note_running }}</div>
+            </div>
+            <div class="base"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:60px">
+      <div class="wrap split">
+        <div class="rv">
+          <div class="eyebrow">{{ t.why.eyebrow }}</div>
+          <h2>{{ t.why.title }}</h2>
+          <p class="lead">{{ t.why.lead }}</p>
+          <ul class="list">{% for li in t.why.points %}<li><span>{{ li }}</span></li>{% endfor %}</ul>
+        </div>
+        <img src="/assets/img/productity/hoy.png" alt="{{ t.why.alt|attr }}" class="shot rv" loading="lazy">
+      </div>
+    </section>
+
+    <section id="funciones" style="padding-top:40px">
+      <div class="wrap center">
+        <div class="eyebrow rv">{{ c.product.features }}</div>
+        <h2 class="rv">{{ t.features.title }}</h2>
+        <div class="features rv">
+          {% for f in t.features.entries %}
+          <div class="feature"><div class="ic">{{ f.icon }}</div><h3>{{ f.title }}</h3><p>{{ f.text }}</p></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    {% for block in t.blocks %}
+    <section style="padding-top:40px">
+      <div class="wrap split{% if loop.index is odd %} rev{% endif %}">
+        <div class="rv">
+          <div class="eyebrow">{{ block.eyebrow }}</div>
+          <h2>{{ block.title }}</h2>
+          <p class="lead">{{ block.lead }}</p>
+          {% if block.points is defined %}<ul class="list">{% for li in block.points %}<li><span>{{ li }}</span></li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% if block.mini is defined %}
+        <div class="float-shot rv">
+          <img src="/assets/img/productity/{{ block.image }}" alt="{{ block.alt|attr }}" class="shot" loading="lazy" style="max-height:560px;width:auto;margin:0 auto">
+          <img src="/assets/img/productity/{{ block.mini }}" alt="{{ block.mini_alt|attr }}" class="mini" loading="lazy">
+        </div>
+        {% else %}
+        <img src="/assets/img/productity/{{ block.image }}" alt="{{ block.alt|attr }}" class="shot rv" loading="lazy">
+        {% endif %}
+      </div>
+    </section>
+    {% endfor %}
+
+    <section id="ipad" style="padding-top:40px">
+      <div class="wrap center">
+        <div class="eyebrow rv">Mac + iPad</div>
+        <h2 class="rv">{{ t.ipad.title }}</h2>
+        <p class="lead rv">{{ t.ipad.lead }}</p>
+        <div class="cards">
+          {% for card in t.ipad.cards %}<div class="card rv"{% if loop.last %} id="privacidad"{% endif %}><h3>{{ card.title }}</h3><p>{{ card.text }}</p></div>
+          {% endfor %}
+        </div>
+        <div class="stats">
+          {% set values = ['45<small> min</small>', '148', '0', '0'] %}
+          {% for label in t.ipad.stats %}<div class="card stat rv"><b>{{ values[loop.index0] }}</b><span>{{ label }}</span></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="acceso">
+      <div class="wrap rv">
+        <img src="/assets/img/productity/icon.png" alt="">
+        <h2>{{ t.final.title }}</h2>
+        <p class="lead" style="margin:0 auto 28px">{{ t.final.lead }}</p>
+        <div class="cta"><a href="mailto:brayanveradev@gmail.com?subject=Productity%20%E2%80%94%20{{ c.product.subject | urlencode }}" class="btn btn-brand">{{ c.product.request }}</a></div>
+        <p class="req">{{ t.final.req }}</p>
+      </div>
+    </section>
+  </main>
+
+{% include "_product_footer.html" %}
+
+  <script>
+    (function () {
+      const bar = document.querySelector('.bar');
+      const onScroll = () => bar.classList.toggle('scrolled', scrollY > 8);
+      onScroll(); addEventListener('scroll', onScroll, { passive: true });
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+      // Reloj en vivo: un bloque acelerado que termina en tiempo extra, como en la app.
+      const NOTE = {{ {'running': t.mock.note_running, 'done': t.mock.note_done} | tojson }};
+      const el = document.getElementById('clock'), note = document.getElementById('clock-note');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      let s = 45 * 60;
+      const fmt = v => String(Math.floor(Math.abs(v) / 60)).padStart(2, '0') + ':' + String(Math.abs(v) % 60).padStart(2, '0');
+      setInterval(() => {
+        s -= s > 60 ? 7 : 1;
+        if (s < -200) s = 45 * 60;
+        el.textContent = (s < 0 ? '+' : '') + fmt(s);
+        el.classList.toggle('over', s < 0);
+        note.textContent = s < 0 ? NOTE.done : NOTE.running;
+      }, 1000 / 6);
+    })();
+  </script>
+</body>
+</html>

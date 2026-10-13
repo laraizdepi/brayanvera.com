@@ -1,0 +1,79 @@
+order = 3
+date = 2026-03-09
+minutes = 3
+
+[slug]
+es = "lo-que-no-va-a-cambiar"
+en = "what-wont-change"
+de = "was-sich-nicht-aendern-wird"
+
+[title]
+es = "Lo que no va a cambiar"
+en = "What won't change"
+de = "Was sich nicht ändern wird"
+
+[description]
+es = "Las habilidades que sirven toda una vida."
+en = "The skills that last a lifetime."
+de = "Fähigkeiten, die ein Leben lang tragen."
+
+[side]
+es = '''<p class="sidenote">En mi cuaderno marco estas ideas con una etiqueta: <span class="mono">#dontchange</span>.</p>
+<p class="sidenote">Quizá algún día esto sea un libro sobre las cosas que no cambian. Por ahora es una lista que reviso.</p>'''
+en = '''<p class="sidenote">In my notebook I tag these ideas with a label: <span class="mono">#dontchange</span>.</p>
+<p class="sidenote">Maybe someday this will be a book about the things that don't change. For now it's a list I keep coming back to.</p>'''
+de = '''<p class="sidenote">In meinem Notizbuch markiere ich diese Gedanken mit einem Etikett: <span class="mono">#dontchange</span>.</p>
+<p class="sidenote">Vielleicht wird daraus eines Tages ein Buch über die Dinge, die sich nicht ändern. Bis dahin ist es eine Liste, zu der ich immer wieder zurückkehre.</p>'''
+
+[body]
+es = '''
+<p>Cuando todo cambia tan rápido, me sirve más preguntar qué no va a cambiar. Son apuestas: habilidades que, si las aprendo bien, me van a servir toda la vida, pase lo que pase con la tecnología.</p>
+<h3>El código, abierto y cerrado</h3>
+<p>El código abierto y el cerrado no van a desaparecer. Entender cómo funciona cada uno, y cómo corre el software por debajo, seguirá siendo importante.</p>
+<h3>La IA, a nivel productivo</h3>
+<p>No como curiosidad, sino aplicada al trabajo de todos los días. Saber qué pedirle y, sobre todo, cómo verificar lo que responde.</p>
+<h3>El inglés</h3>
+<p>Un inglés muy bueno, para no preocuparme de si estoy hablando bien y poder meterme de lleno en una conversación. ¿Se imagina la cantidad de conversaciones espectaculares que hay allá afuera esperando a ser escuchadas?</p>
+<h3>Leer</h3>
+<p>Si domino mi capacidad de leer libros, podré entender cualquier cosa.</p>
+<h3>Saber a quién escuchar</h3>
+<p>¿Cómo saber si alguien merece ser escuchado o leído? ¿Cómo identificar la información errónea? Con más información que nunca, esta habilidad vale más, no menos.</p>
+<h3>Las matemáticas</h3>
+<p>No importa el tema: uno revisa y siempre hay matemáticas detrás. Me gustaría aprender esas «matemáticas de guerrilla», las que se usan en la parte interesante de la sociedad, no solo reglas de tres.</p>
+<hr>
+<p>Pienso la vida en tercios: preparación, producción y un tercero que todavía no sé nombrar. Estoy en el primero, y quiero llenarlo de herramientas para el resto de la vida: idiomas, programación, matemáticas, física, salud, experiencia y, sobre todo, ser una buena persona con los míos.</p>
+'''
+en = '''
+<p>When everything changes so fast, I find it more useful to ask what won't change. These are bets: skills that, if I learn them well, will serve me my whole life, whatever happens with technology.</p>
+<h3>Code, open and closed</h3>
+<p>Open source and closed source aren't going away. Understanding how each one works, and how software runs underneath, will keep mattering.</p>
+<h3>AI, at a productive level</h3>
+<p>Not as a curiosity, but applied to everyday work. Knowing what to ask it and, above all, how to check what it answers.</p>
+<h3>English</h3>
+<p>Really good English, so I don't have to worry about whether I'm speaking well and can throw myself fully into a conversation. Can you imagine how many amazing conversations are out there, waiting to be heard?</p>
+<h3>Reading</h3>
+<p>If I master my ability to read books, I'll be able to understand anything.</p>
+<h3>Knowing whom to listen to</h3>
+<p>How do you know whether someone deserves to be heard or read? How do you spot wrong information? With more information than ever, this skill is worth more, not less.</p>
+<h3>Mathematics</h3>
+<p>Whatever the topic, you look closely and there's always math behind it. I'd like to learn that “guerrilla math”, the kind used in the interesting parts of society, not just the rule of three.</p>
+<hr>
+<p>I think of life in thirds: preparation, production, and a third one I can't name yet. I'm in the first, and I want to fill it with tools for the rest of my life: languages, programming, math, physics, health, experience and, above all, being a good person to the people I love.</p>
+'''
+de = '''
+<p>Wenn sich alles so schnell verändert, hilft es mir mehr zu fragen, was sich nicht ändern wird. Das sind Wetten: Fähigkeiten, die mir, wenn ich sie gut lerne, ein Leben lang nützen, egal was mit der Technologie passiert.</p>
+<h3>Code, offen und geschlossen</h3>
+<p>Open Source und Closed Source werden nicht verschwinden. Zu verstehen, wie beides funktioniert und wie Software darunter läuft, bleibt wichtig.</p>
+<h3>KI, produktiv eingesetzt</h3>
+<p>Nicht als Kuriosität, sondern angewandt auf die tägliche Arbeit. Wissen, was man sie fragt, und vor allem, wie man prüft, was sie antwortet.</p>
+<h3>Englisch</h3>
+<p>Ein richtig gutes Englisch, damit ich mir keine Sorgen machen muss, ob ich gut spreche, und mich ganz in ein Gespräch stürzen kann. Kannst du dir vorstellen, wie viele großartige Gespräche da draußen darauf warten, gehört zu werden?</p>
+<h3>Lesen</h3>
+<p>Wenn ich meine Fähigkeit beherrsche, Bücher zu lesen, kann ich alles verstehen.</p>
+<h3>Wissen, wem man zuhört</h3>
+<p>Woran erkennt man, ob jemand es verdient, gehört oder gelesen zu werden? Wie erkennt man falsche Information? Bei so viel Information wie nie zuvor ist diese Fähigkeit mehr wert, nicht weniger.</p>
+<h3>Mathematik</h3>
+<p>Egal welches Thema: Wer genau hinschaut, findet immer Mathematik dahinter. Ich würde gern diese „Guerilla-Mathematik“ lernen, die in den spannenden Teilen der Gesellschaft gebraucht wird, nicht nur den Dreisatz.</p>
+<hr>
+<p>Ich denke das Leben in Dritteln: Vorbereitung, Produktion und ein drittes, das ich noch nicht benennen kann. Ich bin im ersten und will es mit Werkzeugen für den Rest meines Lebens füllen: Sprachen, Programmieren, Mathematik, Physik, Gesundheit, Erfahrung und vor allem ein guter Mensch für die Meinen zu sein.</p>
+'''

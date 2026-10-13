@@ -1,0 +1,79 @@
+order = 2
+date = 2026-03-09
+minutes = 3
+
+[slug]
+es = "el-universo-ya-lo-resolvio"
+en = "the-universe-already-solved-it"
+de = "das-universum-hat-es-schon-geloest"
+
+[title]
+es = "El universo ya lo resolvió"
+en = "The universe already solved it"
+de = "Das Universum hat es schon gelöst"
+
+[description]
+es = "Sobre la computación cuántica y la IA: la pregunta no es si, sino cuándo."
+en = "On quantum computing and AI: the question isn't whether, but when."
+de = "Über Quantencomputing und KI: Die Frage ist nicht, ob, sondern wann."
+
+[side]
+es = '''<p class="sidenote"><span class="n">1</span>Cuánto peso tienen exactamente los efectos cuánticos en la fotosíntesis todavía se discute. Que estén en juego, no tanto.</p>
+<div class="box"><h4>Para seguir leyendo</h4><ul><li>Jim Al-Khalili y Johnjoe McFadden, <i>Life on the Edge: The Coming of Age of Quantum Biology</i>.</li><li>Paul Davies, <i>Quantum 2.0</i>.</li><li>El trabajo de Alexandra Olaya-Castro, física colombiana, en biología cuántica.</li></ul></div>'''
+en = '''<p class="sidenote"><span class="n">1</span>Exactly how much weight quantum effects carry in photosynthesis is still debated. That they are at play, much less so.</p>
+<div class="box"><h4>Further reading</h4><ul><li>Jim Al-Khalili and Johnjoe McFadden, <i>Life on the Edge: The Coming of Age of Quantum Biology</i>.</li><li>Paul Davies, <i>Quantum 2.0</i>.</li><li>The work of Alexandra Olaya-Castro, a Colombian physicist, on quantum biology.</li></ul></div>'''
+de = '''<p class="sidenote"><span class="n">1</span>Wie viel Gewicht Quanteneffekte in der Photosynthese genau haben, ist noch umstritten. Dass sie im Spiel sind, kaum.</p>
+<div class="box"><h4>Zum Weiterlesen</h4><ul><li>Jim Al-Khalili und Johnjoe McFadden, <i>Life on the Edge: The Coming of Age of Quantum Biology</i>.</li><li>Paul Davies, <i>Quantum 2.0</i>.</li><li>Die Arbeiten der kolumbianischen Physikerin Alexandra Olaya-Castro zur Quantenbiologie.</li></ul></div>'''
+
+[body]
+es = '''
+<p>He estado pensando en las predicciones que la gente hacía sobre internet y, después, sobre la inteligencia artificial. Muchas de esas mismas cosas se dicen hoy sobre los robots y los computadores cuánticos.</p>
+<p>Así que prefiero preguntar por los fundamentos. Desde la ciencia, ¿qué tiene que pasar para que algo así sea posible?</p>
+<p>El universo, a su escala más pequeña, es cuántico. Y en la fotosíntesis hay procesos cuánticos en juego<sup class="n">1</sup>. Es decir, la naturaleza ya construyó máquinas que le sacan provecho a la mecánica cuántica. Con la inteligencia general pasa lo mismo: nosotros somos la prueba de que es físicamente posible.</p>
+<p>Entonces la pregunta no es <em>si</em> se podrá crear una inteligencia artificial general, o una aplicación útil de la tecnología cuántica. La pregunta es <em>cuándo</em>.</p>
+<hr>
+<p>Ese día anoté preguntas que todavía no sé responder:</p>
+<ul class="plain">
+  <li>¿Nuestro cerebro usa la mecánica cuántica de alguna forma relevante?</li>
+  <li>¿Cómo se orientan las aves migratorias con el campo magnético? ¿Qué tienen de cuántico sus magnetorreceptores?</li>
+  <li>¿Qué papel juega el efecto túnel en las enzimas?</li>
+  <li>¿Dependió el origen de la vida de un proceso cuántico?</li>
+  <li>¿Qué es exactamente un sensor cuántico?</li>
+</ul>
+<p>También me hacen cada vez más sentido los papers que mucha gente considera inútiles. Lo que hizo útil a la IA fue entrenarse con todo internet. Lo que la hará útil para descubrir ciencia nueva será leer todos los papers y encontrar los patrones que ningún humano alcanza a ver. Esos papers son el combustible.</p>
+<p>Me encanta estar en la vanguardia. Y vuelvo a pensar en cómo es posible perder el tiempo en banalidades cuando hay tantas preguntas por resolver.</p>
+'''
+en = '''
+<p>I've been thinking about the predictions people made about the internet and, later, about artificial intelligence. Many of those same things are being said today about robots and quantum computers.</p>
+<p>So I'd rather ask about the fundamentals. From a scientific point of view, what has to happen for something like this to be possible?</p>
+<p>The universe, at its smallest scale, is quantum. And there are quantum processes at play in photosynthesis<sup class="n">1</sup>. In other words, nature has already built machines that take advantage of quantum mechanics. The same goes for general intelligence: we are the proof that it's physically possible.</p>
+<p>So the question isn't <em>whether</em> we'll be able to build artificial general intelligence, or a useful application of quantum technology. The question is <em>when</em>.</p>
+<hr>
+<p>That day I wrote down questions I still can't answer:</p>
+<ul class="plain">
+  <li>Does our brain use quantum mechanics in any meaningful way?</li>
+  <li>How do migratory birds find their way using the magnetic field? What's quantum about their magnetoreceptors?</li>
+  <li>What role does tunneling play in enzymes?</li>
+  <li>Did the origin of life depend on a quantum process?</li>
+  <li>What exactly is a quantum sensor?</li>
+</ul>
+<p>The papers many people consider useless also make more and more sense to me. What made AI useful was training on the whole internet. What will make it useful for discovering new science will be reading every paper and finding the patterns no human can see. Those papers are the fuel.</p>
+<p>I love being at the frontier. And I keep wondering how it's possible to waste time on trivialities when there are so many questions left to answer.</p>
+'''
+de = '''
+<p>Ich habe über die Vorhersagen nachgedacht, die man über das Internet machte und später über künstliche Intelligenz. Vieles davon hört man heute wieder, diesmal über Roboter und Quantencomputer.</p>
+<p>Deshalb frage ich lieber nach den Grundlagen. Was muss aus wissenschaftlicher Sicht passieren, damit so etwas möglich wird?</p>
+<p>Das Universum ist auf seiner kleinsten Skala quantenmechanisch. Und in der Photosynthese sind Quantenprozesse im Spiel<sup class="n">1</sup>. Die Natur hat also längst Maschinen gebaut, die die Quantenmechanik ausnutzen. Mit allgemeiner Intelligenz ist es dasselbe: Wir sind der Beweis, dass sie physikalisch möglich ist.</p>
+<p>Die Frage ist also nicht, <em>ob</em> sich eine allgemeine künstliche Intelligenz oder eine nützliche Anwendung der Quantentechnologie bauen lässt. Die Frage ist, <em>wann</em>.</p>
+<hr>
+<p>An dem Tag habe ich Fragen notiert, die ich immer noch nicht beantworten kann:</p>
+<ul class="plain">
+  <li>Nutzt unser Gehirn die Quantenmechanik auf eine relevante Weise?</li>
+  <li>Wie orientieren sich Zugvögel am Magnetfeld? Was ist an ihren Magnetrezeptoren quantenmechanisch?</li>
+  <li>Welche Rolle spielt der Tunneleffekt in Enzymen?</li>
+  <li>Hing der Ursprung des Lebens von einem Quantenprozess ab?</li>
+  <li>Was genau ist ein Quantensensor?</li>
+</ul>
+<p>Auch die Paper, die viele für nutzlos halten, ergeben für mich immer mehr Sinn. Nützlich wurde KI, weil sie mit dem ganzen Internet trainiert wurde. Nützlich für die Entdeckung neuer Wissenschaft wird sie, wenn sie alle Paper liest und die Muster findet, die kein Mensch sieht. Diese Paper sind der Treibstoff.</p>
+<p>Ich liebe es, an der Front zu sein. Und ich frage mich immer wieder, wie man Zeit mit Belanglosigkeiten verschwenden kann, wenn so viele Fragen offen sind.</p>
+'''

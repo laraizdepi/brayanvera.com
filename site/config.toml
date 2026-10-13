@@ -1,0 +1,61 @@
+# Configuración general del sitio. Las rutas de cada página van por idioma.
+base_url = "https://brayanvera.com"
+default = "es"
+languages = ["es", "en", "de"]
+
+[lang.es]
+name = "Español"
+short = "ES"
+locale = "es_CO"
+
+[lang.en]
+name = "English"
+short = "EN"
+locale = "en_US"
+
+[lang.de]
+name = "Deutsch"
+short = "DE"
+locale = "de_DE"
+
+[months]
+es = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+en = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+de = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+
+[months_short]
+es = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sept", "oct", "nov", "dic"]
+en = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+de = ["Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sept.", "Okt.", "Nov.", "Dez."]
+
+# Cada página: plantilla y ruta en cada idioma. El contenido se lee de
+# site/content/<id>.toml salvo que se indique otro con `content`.
+[pages.home]
+template = "home.html"
+es = "/"
+en = "/en/"
+de = "/de/"
+
+[pages.notes]
+template = "notes.html"
+es = "/notas/"
+en = "/en/notes/"
+de = "/de/notizen/"
+
+[pages.hilbert]
+template = "hilbert.html"
+es = "/hilbert/"
+en = "/en/hilbert/"
+de = "/de/hilbert/"
+
+[pages.productity]
+template = "productity.html"
+es = "/productity/"
+en = "/en/productity/"
+de = "/de/productity/"
+
+[pages.zapper]
+template = "zapper.html"
+es = "/zapper/"
+en = "/en/zapper/"
+de = "/de/zapper/"

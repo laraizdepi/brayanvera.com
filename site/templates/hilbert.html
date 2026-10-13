@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include "_product_meta.html" %}
+  <meta property="og:image" content="{{ base_url }}/assets/img/hilbert/icon.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-2: #f7f6fb; --ink: #17153a; --ink-2: #4b4870; --ink-3: #8a87a6; --line: #e6e4f0;
+      --brand: #4f3fe0; --brand-2: #3a2a9e; --hl: #f2c94c; --hl-soft: rgba(242, 201, 76, .45);
+      --serif: "Source Serif 4", Georgia, serif; --sans: "Inter", system-ui, -apple-system, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    ::selection { background: var(--hl-soft); }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 600px) { .wrap { padding: 0 16px; } }
+
+    .bar { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.85); backdrop-filter: saturate(1.6) blur(16px); -webkit-backdrop-filter: saturate(1.6) blur(16px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .bar.scrolled { border-bottom-color: var(--line); }
+    .bar-in { height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--serif); font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+    .logo img { width: 30px; height: 30px; }
+    .links { display: flex; align-items: center; gap: 22px; font-size: 15px; }
+    .links > a { text-decoration: none; color: var(--ink-2); }
+    .links > a:hover { color: var(--ink); }
+    .langs { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--line); border-radius: 999px; font: 500 11.5px var(--mono); }
+    .langs a { padding: 3px 7px; border-radius: 999px; text-decoration: none; color: var(--ink-3); }
+    .langs a:hover { color: var(--ink); }
+    .langs a[aria-current] { background: var(--ink); color: #fff; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px; font-weight: 500; font-size: 15.5px; text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s; border: 1px solid transparent; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-brand { background: var(--brand); color: #fff; box-shadow: 0 6px 20px -8px rgba(79,63,224,.7); }
+    .btn-brand:hover { background: var(--brand-2); }
+    .btn-line { border-color: var(--line); color: var(--ink); background: #fff; }
+    .btn-line:hover { border-color: var(--ink-3); }
+    .links .btn { padding: 8px 14px; color: #fff; }
+    @media (max-width: 860px) { .links > a:not(.btn) { display: none; } .links { gap: 10px; } }
+    @media (max-width: 420px) { .links .btn { display: none; } }
+
+    .hero { text-align: center; padding: 84px 0 110px; background: linear-gradient(180deg, var(--bg-2), var(--bg) 70%); }
+    .eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--brand); }
+    h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(42px, 6.4vw, 80px); line-height: 1.04; letter-spacing: -.025em; margin: 18px auto 20px; max-width: 900px; }
+    .mark { background: linear-gradient(transparent 58%, var(--hl-soft) 58%, var(--hl-soft) 92%, transparent 92%); padding: 0 .06em; font-style: italic; }
+    .sub { font-size: clamp(18px, 1.8vw, 21px); color: var(--ink-2); max-width: 680px; margin: 0 auto 32px; }
+    .cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .req { margin-top: 18px; font-size: 13.5px; color: var(--ink-3); }
+
+    .app { max-width: 1100px; margin: 64px auto 0; text-align: left; border-radius: 14px; overflow: hidden; background: #fff; border: 1px solid #dcd9ea; box-shadow: 0 50px 100px -40px rgba(23,21,58,.45), 0 0 0 1px rgba(23,21,58,.03); }
+    .app-top { display: flex; align-items: center; gap: 14px; padding: 10px 14px; background: #f3f2f8; border-bottom: 1px solid var(--line); }
+    .lights { display: flex; gap: 8px; } .lights i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+    .tabs { display: flex; gap: 4px; flex: 1; min-width: 0; }
+    .tab { position: relative; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tab.on { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+    .tab .prog { position: absolute; left: 10px; right: 10px; bottom: 3px; height: 2px; background: var(--line); border-radius: 2px; }
+    .tab .prog i { display: block; height: 100%; background: var(--brand); border-radius: 2px; }
+    .modes { display: flex; gap: 2px; padding: 3px; border-radius: 8px; background: #e9e7f2; }
+    .modes button { border: 0; background: none; color: var(--ink-2); font: 500 12px var(--sans); padding: 5px 10px; border-radius: 6px; cursor: pointer; }
+    .modes button.on { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+    .app-body { display: grid; grid-template-columns: 210px 1fr 260px; min-height: 560px; }
+    .app-body > * { min-width: 0; }
+    .app-side, .app-notes { background: #faf9fd; padding: 16px 12px; font-size: 12.5px; color: var(--ink-2); }
+    .app-side { border-right: 1px solid var(--line); } .app-notes { border-left: 1px solid var(--line); }
+    .app h5 { margin: 0 0 10px 8px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); font-weight: 600; }
+    .toc div { padding: 6px 8px; border-radius: 6px; } .toc .sub2 { padding-left: 20px; } .toc .on { background: rgba(79,63,224,.12); color: var(--brand-2); font-weight: 500; }
+    .page-wrap { background: #eceaf3; padding: 26px; display: flex; justify-content: center; transition: background .3s; }
+    .page { width: 100%; max-width: 560px; background: #fffefb; color: #1c1c1f; padding: 42px 46px; border-radius: 2px; box-shadow: 0 8px 30px rgba(23,21,58,.12); font-family: var(--serif); font-size: 14.5px; line-height: 1.62; transition: background .3s, color .3s; }
+    .page h3 { font-size: 19px; margin: 0 0 14px; }
+    .page p { margin: 0 0 12px; text-align: justify; hyphens: auto; }
+    .eqn { display: flex; align-items: center; justify-content: center; position: relative; margin: 14px 0; }
+    .eqn .num { position: absolute; right: 0; }
+    .app.sepia .page { background: #f4ecd8; color: #4a3b28; } .app.sepia .page-wrap { background: #e2d7bd; }
+    .app.dark .page { background: #16171b; color: #d8d9de; } .app.dark .page-wrap { background: #0f1013; }
+    .mk { border-radius: 2px; padding: 0 1px; }
+    .c1 { background: rgba(242,201,76,.55); } .c2 { background: rgba(77,163,255,.32); } .c4 { background: rgba(56,201,120,.32); } .c6 { background: rgba(255,99,99,.28); }
+    .ref { color: var(--brand); border-bottom: 1px dashed var(--brand); cursor: help; position: relative; display: inline-block; }
+    .app.dark .ref { color: #a99bff; border-color: #a99bff; }
+    .peek { position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%) translateY(6px); width: 330px; padding: 14px 16px; background: #fff; color: #1c1c1f; border-radius: 12px; box-shadow: 0 20px 50px rgba(23,21,58,.25), 0 0 0 1px rgba(23,21,58,.08); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 5; font-size: 13px; text-align: left; }
+    .peek small { display: block; font: 11px var(--sans); color: #777; margin-bottom: 6px; }
+    .ref:hover .peek, .ref.show .peek { opacity: 1; transform: translateX(-50%); }
+    .note { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-bottom: 10px; font-size: 12.5px; color: var(--ink-2); border-left: 3px solid var(--c, var(--hl)); }
+    .note .meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-3); margin-bottom: 6px; }
+    .note.claude { background: #fdf6f2; border-color: #f0d8cc; border-left-color: #d97757; }
+    .note.claude .meta { color: #b9603f; }
+    .hint { margin: 14px 0 0; font-size: 13.5px; color: var(--ink-3); text-align: center; }
+    @media (max-width: 980px) { .app-body { grid-template-columns: 1fr; } .app-side, .app-notes { display: none; } .page { padding: 28px 22px; font-size: 13.5px; } .tab:not(.on) { display: none; } }
+    @media (max-width: 520px) { .peek { width: 260px; } }
+
+    section { padding: 120px 0; }
+    .head { max-width: 760px; }
+    .head.center { margin: 0 auto; text-align: center; }
+    h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.2vw, 50px); line-height: 1.08; letter-spacing: -.02em; margin: 12px 0 16px; }
+    h2 em { font-style: italic; color: var(--brand); }
+    .lead { font-size: 19px; color: var(--ink-2); margin: 0; }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 56px; border-top: 1px solid var(--line); }
+    .pillar { padding: 30px 30px 10px 0; }
+    .pillar + .pillar { padding-left: 30px; border-left: 1px solid var(--line); }
+    .pillar .n { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--brand); }
+    .pillar h3 { font-family: var(--serif); font-weight: 600; font-size: 23px; margin: 8px 0 10px; }
+    .pillar ul { margin: 0; padding: 0; list-style: none; color: var(--ink-2); font-size: 15.5px; }
+    .pillar li { padding: 7px 0; border-bottom: 1px solid var(--line); }
+    .pillar li:last-child { border: 0; }
+    @media (max-width: 860px) { .pillars { grid-template-columns: 1fr; } .pillar + .pillar { padding-left: 0; border-left: 0; } }
+
+    .split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; align-items: center; }
+    .split > * { min-width: 0; }
+    .split.rev > :first-child { order: 2; }
+    @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 40px; } .split.rev > :first-child { order: 0; } }
+    .check { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
+    .check li { padding-left: 30px; position: relative; color: var(--ink-2); }
+    .check li::before { content: ""; position: absolute; left: 0; top: 7px; width: 16px; height: 10px; border-radius: 2px; background: var(--hl); }
+    .check b { color: var(--ink); font-weight: 600; }
+
+    .card { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 28px; box-shadow: 0 30px 60px -40px rgba(23,21,58,.3); }
+    .refs { font-family: var(--serif); font-size: 17px; line-height: 1.9; color: #2a2a33; }
+    .chip { color: var(--brand); background: rgba(79,63,224,.08); border-radius: 5px; padding: 1px 5px; border-bottom: 1px dashed var(--brand); }
+    .cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .cat { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 10px; background: var(--bg-2); border: 1px solid var(--line); font-size: 14px; }
+    .cat i { width: 12px; height: 12px; border-radius: 3px; display: block; }
+    kbd { font-family: var(--mono); font-size: 12px; padding: 2px 7px; border-radius: 6px; border: 1px solid var(--line); border-bottom-width: 2px; background: #fff; color: var(--ink); white-space: nowrap; }
+    .bubble { border-radius: 14px; padding: 14px 16px; font-size: 15px; margin-top: 12px; }
+    .bubble.q { background: var(--bg-2); border: 1px solid var(--line); }
+    .bubble.a { background: #fdf6f2; border: 1px solid #f0d8cc; }
+    .who { display: block; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin-bottom: 6px; }
+    .bubble.a .who { color: #b9603f; }
+    code.latex { display: block; font-family: var(--mono); font-size: 12.5px; background: #fff; border: 1px solid #f0d8cc; border-radius: 8px; padding: 10px 12px; overflow-x: auto; white-space: nowrap; color: #6a2c14; margin-top: 8px; }
+    .ocr { background: #f3efe5; border-radius: 10px; padding: 24px; font-family: var(--serif); line-height: 1.75; color: #2b2b2b; position: relative; overflow: hidden; }
+    .ocr .w { outline: 1px dashed rgba(79,63,224,.55); border-radius: 2px; }
+    .scan { position: absolute; left: 0; right: 0; height: 44px; background: linear-gradient(180deg, transparent, rgba(79,63,224,.25), transparent); animation: scan 3.4s ease-in-out infinite; }
+    @keyframes scan { from { top: -44px; } to { top: 100%; } }
+
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+    .grid3 .card h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0 0 8px; }
+    .grid3 .card p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+    @media (max-width: 860px) { .grid3 { grid-template-columns: 1fr; } }
+
+    table.keys { width: 100%; border-collapse: collapse; margin-top: 40px; font-size: 15px; }
+    table.keys td { padding: 12px 10px; border-bottom: 1px solid var(--line); color: var(--ink-2); }
+    table.keys td:nth-child(odd) { white-space: nowrap; width: 1%; }
+    @media (max-width: 640px) { table.keys, table.keys tbody { display: block; } table.keys tr { display: grid; grid-template-columns: auto 1fr; } table.keys td:nth-child(odd) { width: auto; } }
+
+    .final { text-align: center; background: linear-gradient(180deg, var(--bg), var(--bg-2)); }
+    .final img { width: 96px; height: 96px; margin: 0 auto 20px; filter: drop-shadow(0 18px 30px rgba(79,63,224,.35)); }
+
+    footer { border-top: 1px solid var(--line); padding: 30px 0 44px; font-size: 14px; color: var(--ink-3); }
+    .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .foot .logo { font-size: 17px; color: var(--ink); } .foot .logo img { width: 24px; height: 24px; }
+    .foot-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .by { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink-2); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; font-size: 13px; }
+    .by:hover { border-color: var(--ink-3); color: var(--ink); }
+
+    .rv { opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s ease; }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } .scan { display: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="wrap bar-in">
+      <a href="{{ path }}" class="logo"><img src="/assets/img/hilbert/icon.png" alt="">Hilbert</a>
+      <nav class="links">
+        <a href="#leer">{{ c.product.features }}</a>
+        <a href="#claude">Claude</a>
+        <a href="#atajos">{{ c.product.shortcuts }}</a>
+        <a href="#privacidad">{{ c.product.privacy }}</a>
+        {% include "_langs.html" %}
+        <a href="#acceso" class="btn btn-brand">{{ c.product.request }}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">{{ t.hero.eyebrow }}</div>
+        <h1>{{ t.hero.title }}</h1>
+        <p class="sub">{{ t.hero.sub }}</p>
+        <div class="cta">
+          <a href="#acceso" class="btn btn-brand">{{ c.product.request }}</a>
+          <a href="#leer" class="btn btn-line">{{ t.hero.how }}</a>
+        </div>
+        <p class="req">{{ t.hero.req }}</p>
+
+        <div class="app rv" id="app">
+          <div class="app-top">
+            <div class="lights"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+            <div class="tabs">
+              {% for tab in t.mock.tabs %}<div class="tab{% if loop.first %} on{% endif %}">{{ tab }}<span class="prog"><i style="width:{{ [38, 71, 12][loop.index0] }}%"></i></span></div>
+              {% endfor %}
+            </div>
+            <div class="modes" role="group" aria-label="{{ t.mock.modes_label|attr }}">
+              <button class="on" data-mode="">{{ t.mock.modes[0] }}</button><button data-mode="sepia">{{ t.mock.modes[1] }}</button><button data-mode="dark">{{ t.mock.modes[2] }}</button>
+            </div>
+          </div>
+          <div class="app-body">
+            <aside class="app-side">
+              <h5>{{ t.mock.toc_label }}</h5>
+              <div class="toc">
+                {% for item in t.mock.toc %}<div class="{{ ['', '', 'sub2', 'sub2 on', 'sub2', '', ''][loop.index0] }}">{{ item }}</div>
+                {% endfor %}
+              </div>
+            </aside>
+            <div class="page-wrap">
+              <article class="page">
+                <h3>{{ t.mock.heading }}</h3>
+                <p>{{ t.mock.p1 }}</p>
+                <p>{{ t.mock.p2 }}</p>
+                <div class="eqn"><span data-tex="\frac{d^2\psi}{dx^2} = -k^2\psi, \qquad k \equiv \frac{\sqrt{2mE}}{\hbar}"></span><span class="num">(2.21)</span></div>
+                <p>{{ t.mock.p3 }}</p>
+                <div class="eqn"><span class="mk c4" style="padding:4px 8px"><span data-tex="E_n = \frac{n^2\pi^2\hbar^2}{2ma^2}"></span></span><span class="num">(2.30)</span></div>
+                <p>{{ t.mock.p4_before }}
+                  <span class="ref" tabindex="0">{{ t.mock.ref }}
+                    <span class="peek"><small>{{ t.mock.peek_title }}</small><span data-tex="\int_{-\infty}^{\infty} \psi_m(x)^*\,\psi_n(x)\,dx = \delta_{mn}"></span><small style="margin:8px 0 0">{{ t.mock.peek_hint }}</small></span>
+                  </span>{{ t.mock.p4_after }} <span class="mk c6">{{ t.mock.doubt }}</span></p>
+              </article>
+            </div>
+            <aside class="app-notes">
+              <h5>{{ t.mock.notes_label }}</h5>
+              <div class="note" style="--c:#38c978"><div class="meta"><span>{{ t.mock.note1_kind }}</span><span>{{ t.mock.p }} 52</span></div>{{ t.mock.note1 }}</div>
+              <div class="note" style="--c:#ff6363"><div class="meta"><span>{{ t.mock.note2_kind }}</span><span>{{ t.mock.p }} 53</span></div>{{ t.mock.note2 }} <span data-tex="f(x)=\sum c_n\psi_n(x)"></span></div>
+              <div class="note claude"><div class="meta"><span>✳︎ Claude</span><span>{{ t.mock.selection }}</span></div>{{ t.mock.note3 }}</div>
+            </aside>
+          </div>
+        </div>
+        <p class="hint">{{ t.mock.hint }}</p>
+      </div>
+    </section>
+
+    <section id="leer" style="padding-top:40px">
+      <div class="wrap">
+        <div class="head rv">
+          <div class="eyebrow">{{ t.pillars.eyebrow }}</div>
+          <h2>{{ t.pillars.title }}</h2>
+          <p class="lead">{{ t.pillars.lead }}</p>
+        </div>
+        <div class="pillars rv">
+          {% for p in t.pillars.entries %}
+          <div class="pillar"><span class="n">{{ ['i.', 'ii.', 'iii.'][loop.index0] }}</span><h3>{{ p.title }}</h3><ul>{% for li in p.points %}<li>{{ li }}</li>{% endfor %}</ul></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:40px">
+      <div class="wrap split">
+        <div class="rv">
+          <div class="eyebrow">{{ t.refs.eyebrow }}</div>
+          <h2>{{ t.refs.title }}</h2>
+          <p class="lead">{{ t.refs.lead }}</p>
+          <ul class="check">{% for li in t.refs.points %}<li>{{ li }}</li>{% endfor %}</ul>
+        </div>
+        <div class="card refs rv">{{ t.refs.sample }}</div>
+      </div>
+    </section>
+
+    <section style="padding-top:40px">
+      <div class="wrap split rev">
+        <div class="rv">
+          <div class="eyebrow">{{ t.annotate.eyebrow }}</div>
+          <h2>{{ t.annotate.title }}</h2>
+          <p class="lead">{{ t.annotate.lead }}</p>
+          <div class="cats">
+            {% for cat in t.annotate.categories %}<span class="cat"><kbd>{{ loop.index }}</kbd><i style="background:{{ ['#f2c94c', '#4da3ff', '#a371f7', '#38c978', '#ff9f43', '#ff6363'][loop.index0] }}"></i>{{ cat }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="card rv">
+          <div class="who">{{ t.annotate.note_meta }}</div>
+          <div style="font-family:var(--serif); font-size:20px; font-weight:600; margin-bottom:8px">{{ t.annotate.note_title }}</div>
+          <p style="margin:0 0 8px; color:var(--ink-2)">{{ t.annotate.note_p1 }}</p>
+          <div data-tex="-\frac{\hbar^2}{2m}\frac{d^2u}{dr^2} + \left[V(r) + \frac{\hbar^2}{2m}\frac{\ell(\ell+1)}{r^2}\right]u = Eu" data-display style="overflow-x:auto"></div>
+          <p style="margin:8px 0 0; color:var(--ink-2)">{{ t.annotate.note_p2 }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="claude" style="padding-top:40px">
+      <div class="wrap split">
+        <div class="rv">
+          <div class="eyebrow">{{ t.claude.eyebrow }}</div>
+          <h2>{{ t.claude.title }}</h2>
+          <p class="lead">{{ t.claude.lead }}</p>
+          <ul class="check">{% for li in t.claude.points %}<li>{{ li }}</li>{% endfor %}</ul>
+        </div>
+        <div class="card rv">
+          <div class="bubble q"><span class="who">{{ t.claude.snippet }}</span><span data-tex="\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2 = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \tfrac{1}{2}\right)"></span></div>
+          <div class="bubble a"><span class="who">✳︎ Claude</span>
+            <code class="latex">\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2 = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \tfrac{1}{2}\right)</code>
+            <p style="margin:10px 0 0">{{ t.claude.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:40px">
+      <div class="wrap split rev">
+        <div class="rv">
+          <div class="eyebrow">{{ t.ocr.eyebrow }}</div>
+          <h2>{{ t.ocr.title }}</h2>
+          <p class="lead">{{ t.ocr.lead }}</p>
+          <ul class="check">{% for li in t.ocr.points %}<li>{{ li }}</li>{% endfor %}</ul>
+        </div>
+        <div class="card rv"><div class="ocr"><div class="scan"></div>{{ t.ocr.sample }}</div></div>
+      </div>
+    </section>
+
+    <section id="privacidad" style="padding-top:40px">
+      <div class="wrap">
+        <div class="head center rv">
+          <div class="eyebrow">{{ t.privacy.eyebrow }}</div>
+          <h2>{{ t.privacy.title }}</h2>
+        </div>
+        <div class="grid3">
+          {% for card in t.privacy.cards %}<div class="card rv"><h3>{{ card.title }}</h3><p>{{ card.text }}</p></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section id="atajos" style="padding-top:40px">
+      <div class="wrap" style="max-width:880px">
+        <div class="head center rv">
+          <div class="eyebrow">{{ t.shortcuts.eyebrow }}</div>
+          <h2>{{ t.shortcuts.title }}</h2>
+        </div>
+        {% set keys = [['<kbd>1</kbd>–<kbd>6</kbd>', '<kbd>⌘K</kbd>'], ['<kbd>H</kbd> <kbd>U</kbd> <kbd>N</kbd>', '<kbd>⌘L</kbd>'], ['<kbd>⌘[</kbd> <kbd>⌘]</kbd>', '<kbd>⌘F</kbd> <kbd>⌘G</kbd>'], ['<kbd>⌥⌘1/2/3</kbd>', '<kbd>J</kbd> <kbd>K</kbd>'], ['<kbd>⌘.</kbd>', '<kbd>⇧⌘D</kbd> <kbd>⌥⌘V</kbd>']] %}
+        <table class="keys rv">
+          {% for row in t.shortcuts.rows %}
+          <tr><td>{{ keys[loop.index0][0] }}</td><td>{{ row[0] }}</td><td>{{ keys[loop.index0][1] }}</td><td>{{ row[1] }}</td></tr>
+          {% endfor %}
+        </table>
+      </div>
+    </section>
+
+    <section class="final" id="acceso">
+      <div class="wrap rv">
+        <img src="/assets/img/hilbert/icon.png" alt="">
+        <h2>{{ t.final.title }}</h2>
+        <p class="lead" style="margin:0 auto 28px; max-width:560px">{{ t.final.lead }}</p>
+        <div class="cta"><a href="mailto:brayanveradev@gmail.com?subject=Hilbert%20%E2%80%94%20{{ c.product.subject | urlencode }}" class="btn btn-brand">{{ c.product.request }}</a></div>
+        <p class="req">{{ t.final.req }}</p>
+      </div>
+    </section>
+  </main>
+
+{% include "_product_footer.html" %}
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-tex]').forEach(el => {
+        try { katex.render(el.dataset.tex, el, { throwOnError: false, displayMode: el.hasAttribute('data-display') }); }
+        catch (e) { el.textContent = el.dataset.tex; }
+      });
+      const app = document.getElementById('app');
+      app.querySelectorAll('.modes button').forEach(b => b.addEventListener('click', () => {
+        app.querySelectorAll('.modes button').forEach(x => x.classList.toggle('on', x === b));
+        app.classList.remove('sepia', 'dark');
+        if (b.dataset.mode) app.classList.add(b.dataset.mode);
+      }));
+      const ref = app.querySelector('.ref');
+      ref.addEventListener('click', () => ref.classList.toggle('show'));
+
+      const bar = document.querySelector('.bar');
+      const onScroll = () => bar.classList.toggle('scrolled', scrollY > 8);
+      onScroll(); addEventListener('scroll', onScroll, { passive: true });
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.rv').forEach(el => io.observe(el));
+    });
+  </script>
+</body>
+</html>

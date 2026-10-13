@@ -1,0 +1,63 @@
+# Índice de notas: ensayos (se listan solos desde content/essays/) y fragmentos.
+
+[description]
+es = "Ensayos y fragmentos de Brayan Vera: física, información cuántica, IA y la forma de aprender."
+en = "Essays and fragments by Brayan Vera: physics, quantum information, AI and how to learn."
+de = "Essays und Fragmente von Brayan Vera: Physik, Quanteninformation, KI und das Lernen."
+
+[title]
+es = "Escribo para <em>pensar</em>."
+en = "I write to <em>think</em>."
+de = "Ich schreibe, um zu <em>denken</em>."
+
+[lede]
+es = "Estos textos salen de mi cuaderno, con muy poca edición. Son ideas en proceso, no conclusiones."
+en = "These texts come from my notebook, lightly edited. They're ideas in progress, not conclusions."
+de = "Diese Texte stammen aus meinem Notizbuch, kaum bearbeitet. Es sind Gedanken im Entstehen, keine Schlussfolgerungen."
+
+[essays]
+es = "Ensayos"
+en = "Essays"
+de = "Essays"
+
+[fragments_heading]
+es = "Fragmentos"
+en = "Fragments"
+de = "Fragmente"
+
+[side]
+es = "Más que publicar conclusiones, me interesa dejar registro de cómo cambia lo que pienso."
+en = "More than publishing conclusions, I want to keep a record of how my thinking changes."
+de = "Mehr als Schlussfolgerungen zu veröffentlichen, will ich festhalten, wie sich mein Denken verändert."
+
+[[fragments]]
+date = 2026-02-25
+[fragments.text]
+es = "¿Será que la condición necesaria para que una estructura matemática sea una estructura física es que tenga una representación geométrica?"
+en = "Could it be that the necessary condition for a mathematical structure to be a physical one is that it has a geometric representation?"
+de = "Ist vielleicht die notwendige Bedingung dafür, dass eine mathematische Struktur eine physikalische ist, dass sie eine geometrische Darstellung hat?"
+
+[[fragments]]
+[fragments.text]
+es = "Cuando hay motivación, todo es fácil; cuando la motivación desaparece, aparece la constancia."
+en = "When there's motivation, everything is easy; when motivation disappears, consistency shows up."
+de = "Solange die Motivation da ist, ist alles leicht; wenn sie verschwindet, zeigt sich die Beständigkeit."
+
+[[fragments]]
+date = 2026-02-25
+[fragments.text]
+es = "Yo no soy la cantidad de horas que estudio."
+en = "I am not the number of hours I study."
+de = "Ich bin nicht die Anzahl der Stunden, die ich lerne."
+
+[[fragments]]
+[fragments.text]
+es = "Las cosas sin completar hacen ruido mientras me concentro en lo importante."
+en = "Unfinished things make noise while I try to focus on what matters."
+de = "Unerledigte Dinge machen Lärm, während ich mich auf das Wichtige konzentriere."
+
+[[fragments]]
+[fragments.text]
+es = "Para hacer trabajo de alto nivel hace falta una capacidad de concentración muy alta. Quizá unas tres horas diarias de trabajo profundo sean el máximo que de verdad rinde."
+en = "High-level work takes a very high capacity for concentration. Maybe three hours a day of deep work is the most that truly pays off."
+de = "Arbeit auf hohem Niveau verlangt eine sehr hohe Konzentrationsfähigkeit. Vielleicht sind drei Stunden tiefe Arbeit am Tag das Maximum, das sich wirklich lohnt."

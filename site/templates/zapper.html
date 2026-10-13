@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include "_product_meta.html" %}
+  <meta property="og:image" content="{{ base_url }}/assets/img/zapper/hero.png">
+  <meta name="theme-color" content="#0b0c10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0c10; --bg-2: #111318; --card: #16181e; --line: rgba(255,255,255,.08); --line-2: rgba(255,255,255,.15);
+      --text: #eceef3; --text-2: #9ea3b0; --text-3: #676c78;
+      --amber: #f5a524; --amber-2: #ffcf73; --red: #e5484d;
+      --sans: "Inter", system-ui, -apple-system, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    ::selection { background: rgba(245,165,36,.35); }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 600px) { .wrap { padding: 0 16px; } }
+
+    .bar { position: sticky; top: 0; z-index: 20; background: rgba(11,12,16,.78); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .bar.scrolled { border-bottom-color: var(--line); }
+    .bar-in { height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 19px; letter-spacing: -.02em; }
+    .logo img { width: 30px; height: 30px; }
+    .links { display: flex; align-items: center; gap: 22px; font-size: 15px; }
+    .links > a { text-decoration: none; color: var(--text-2); }
+    .links > a:hover { color: var(--text); }
+    .langs { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--line-2); border-radius: 9px; font: 500 11.5px var(--mono); }
+    .langs a { padding: 3px 7px; border-radius: 7px; text-decoration: none; color: var(--text-3); }
+    .langs a:hover { color: var(--text); }
+    .langs a[aria-current] { background: var(--amber); color: #1a1306; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 12px; font-weight: 600; font-size: 15.5px; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; border: 1px solid transparent; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-amber { background: var(--amber); color: #1a1306; }
+    .btn-amber:hover { box-shadow: 0 12px 40px -12px var(--amber); }
+    .btn-line { border-color: var(--line-2); color: var(--text); }
+    .btn-line:hover { background: rgba(255,255,255,.04); }
+    .links .btn { padding: 8px 16px; color: #1a1306; }
+    @media (max-width: 860px) { .links > a:not(.btn) { display: none; } .links { gap: 10px; } }
+    @media (max-width: 420px) { .links .btn { display: none; } }
+
+    .hero { padding: 84px 0 30px; text-align: center; }
+    .eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber); }
+    h1 { font-weight: 700; font-size: clamp(44px, 7vw, 92px); line-height: 1; letter-spacing: -.045em; margin: 20px auto 22px; max-width: 980px; }
+    h1 span { background: linear-gradient(180deg, var(--amber-2), var(--amber)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .sub { font-size: clamp(18px, 1.8vw, 21px); color: var(--text-2); max-width: 640px; margin: 0 auto 32px; }
+    .cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .req { margin-top: 18px; font-size: 13.5px; color: var(--text-3); }
+    .hero-img { margin: 64px auto 0; max-width: min(1180px, 100%); border-radius: 22px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 60px 140px -40px rgba(0,0,0,.95); }
+
+    section { padding: 120px 0; }
+    h2 { font-weight: 700; font-size: clamp(32px, 4.6vw, 56px); line-height: 1.04; letter-spacing: -.04em; margin: 14px 0 18px; }
+    h2 span { color: var(--amber); }
+    .lead { font-size: 19px; color: var(--text-2); margin: 0; max-width: 640px; }
+    .center { text-align: center; } .center .lead { margin: 0 auto; }
+
+    .demo { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: center; margin-top: 56px; }
+    .demo > * { min-width: 0; }
+    .tv-screen { aspect-ratio: 16 / 9; border-radius: 14px; background: #000; border: 10px solid #121318; position: relative; overflow: hidden; box-shadow: 0 50px 120px -30px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.06); }
+    .tv-stand { width: 26%; height: 14px; margin: 0 auto; background: linear-gradient(180deg, #1c1d22, #0d0e11); border-radius: 0 0 10px 10px; }
+    .tv-ui { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 0%, #1b2440 0%, #090b12 60%); transition: opacity .5s; padding: 5%; display: flex; flex-direction: column; justify-content: flex-end; }
+    .tv-ui.off { opacity: 0; }
+    .tv-hello { position: absolute; left: 5%; top: 7%; color: #fff; font-size: clamp(16px, 2.4vw, 28px); font-weight: 600; letter-spacing: -.02em; }
+    .tv-hello small { display: block; font-weight: 400; font-size: .5em; color: #9aa3b8; letter-spacing: 0; margin-top: 4px; }
+    .tv-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.4%; }
+    .tv-app { aspect-ratio: 16 / 10; border-radius: 8px; display: grid; place-items: center; color: #fff; font-weight: 600; font-size: clamp(9px, 1.15vw, 14px); transition: transform .25s, outline-color .25s, box-shadow .25s; outline: 2px solid transparent; outline-offset: 3px; }
+    .tv-app.focus { transform: scale(1.1); outline-color: #fff; box-shadow: 0 14px 30px rgba(0,0,0,.6); }
+    .tv-open { position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(30px, 6vw, 68px); font-weight: 700; color: #fff; opacity: 0; transition: opacity .35s; pointer-events: none; letter-spacing: -.03em; }
+    .tv-open.on { opacity: 1; }
+    .tv-osd { position: absolute; right: 4%; top: 7%; padding: 8px 14px; border-radius: 10px; background: rgba(0,0,0,.6); backdrop-filter: blur(8px); color: #fff; font-size: clamp(10px, 1.2vw, 14px); display: flex; align-items: center; gap: 10px; opacity: 0; transition: opacity .25s; font-family: var(--mono); }
+    .tv-osd.on { opacity: 1; }
+    .tv-osd .barv { width: 90px; height: 4px; background: rgba(255,255,255,.2); border-radius: 2px; overflow: hidden; }
+    .tv-osd .barv i { display: block; height: 100%; background: var(--amber); width: 40%; transition: width .2s; }
+    .tv-off { position: absolute; inset: 0; display: grid; place-items: center; color: #3a3d46; font-size: 13px; font-family: var(--mono); pointer-events: none; }
+
+    .remote { width: 100%; max-width: 280px; justify-self: center; padding: 22px 20px 24px; border-radius: 34px; background: linear-gradient(180deg, #23252c, #17181d); border: 1px solid var(--line); box-shadow: 0 40px 80px -20px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.06); display: grid; gap: 18px; user-select: none; }
+    .r-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .rb { border: 0; cursor: pointer; color: #e9ebf2; font: 600 13px var(--sans); background: linear-gradient(180deg, #34363f, #282a31); border-radius: 999px; padding: 10px 16px; box-shadow: 0 3px 0 #101114, inset 0 1px 0 rgba(255,255,255,.08); transition: transform .08s, box-shadow .08s; }
+    .rb.round { width: 50px; height: 50px; padding: 0; display: grid; place-items: center; font-size: 17px; }
+    .rb.pressed, .rb:active { transform: translateY(2px); box-shadow: 0 1px 0 #101114; }
+    .rb.power { background: var(--red); color: #fff; }
+    .dpad { position: relative; width: 190px; height: 190px; margin: 0 auto; border-radius: 50%; background: linear-gradient(180deg, #2c2e36, #202228); box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 6px 0 #101114; }
+    .dpad button { position: absolute; border: 0; background: none; color: #aeb3c2; cursor: pointer; width: 54px; height: 54px; font-size: 18px; border-radius: 50%; transition: color .15s, background .15s; }
+    .dpad button.pressed { color: var(--amber); background: rgba(245,165,36,.12); }
+    .dpad .up { top: 6px; left: 68px; } .dpad .down { bottom: 6px; left: 68px; } .dpad .left { left: 6px; top: 68px; } .dpad .right { right: 6px; top: 68px; }
+    .dpad .ok { left: 50%; top: 50%; transform: translate(-50%, -50%); width: 78px; height: 78px; background: linear-gradient(180deg, #1c1d22, #15161a); color: #fff; font: 700 17px var(--sans); box-shadow: 0 0 0 1px rgba(255,255,255,.05); }
+    .dpad .ok.pressed { color: var(--amber); box-shadow: 0 0 0 2px var(--amber), 0 0 24px rgba(245,165,36,.35); }
+    .rocker { display: grid; grid-template-rows: 1fr auto 1fr; justify-items: center; width: 54px; padding: 4px 0; border-radius: 28px; background: linear-gradient(180deg, #34363f, #282a31); box-shadow: 0 3px 0 #101114; }
+    .rocker button { border: 0; background: none; color: #e9ebf2; font-size: 18px; width: 54px; height: 40px; cursor: pointer; border-radius: 20px; }
+    .rocker button.pressed { color: var(--amber); }
+    .rocker span { font-size: 10px; font-weight: 600; color: #8b90a0; letter-spacing: .08em; }
+    .demo-hint { text-align: center; margin-top: 22px; font-size: 14px; color: var(--text-3); }
+    @media (max-width: 900px) { .demo { grid-template-columns: 1fr; } }
+
+    kbd { display: inline-block; min-width: 26px; text-align: center; padding: 3px 8px; margin: 0 2px; border-radius: 7px; font-family: var(--mono); font-size: 12.5px; color: var(--text); background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.04)); border: 1px solid var(--line-2); box-shadow: 0 2px 0 rgba(0,0,0,.5); }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; text-align: left; }
+    .feature { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+    .feature .ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: rgba(245,165,36,.12); border: 1px solid rgba(245,165,36,.3); font-size: 19px; }
+    .feature h3 { font-size: 18px; font-weight: 600; margin: 16px 0 6px; letter-spacing: -.01em; }
+    .feature p { color: var(--text-2); margin: 0; font-size: 15.5px; }
+    @media (max-width: 960px) { .features { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .features { grid-template-columns: 1fr; } }
+
+    .gallery { display: flex; gap: 22px; justify-content: center; align-items: flex-end; margin-top: 56px; flex-wrap: wrap; }
+    .gallery img { width: min(250px, 42vw); border-radius: 18px; filter: drop-shadow(0 30px 50px rgba(0,0,0,.7)); transition: transform .4s; }
+    .gallery img:hover { transform: translateY(-8px); }
+    .gallery.small img { width: min(210px, 40vw); }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 50px; counter-reset: s; text-align: left; }
+    .step { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+    .step::before { counter-increment: s; content: "0" counter(s); font-family: var(--mono); font-size: 13px; color: var(--amber); }
+    .step h3 { font-size: 20px; margin: 10px 0 8px; }
+    .step p { color: var(--text-2); margin: 0; font-size: 15.5px; }
+    @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+
+    .keys { width: 100%; border-collapse: collapse; margin-top: 40px; }
+    .keys td { padding: 13px 12px; border-bottom: 1px solid var(--line); color: var(--text-2); font-size: 15px; transition: background .2s, color .2s; }
+    .keys tr.hit td { background: rgba(245,165,36,.12); color: var(--text); }
+    .keys td:nth-child(odd) { white-space: nowrap; width: 1%; }
+    @media (max-width: 640px) { .keys, .keys tbody { display: block; } .keys tr { display: grid; grid-template-columns: minmax(96px, auto) 1fr; } .keys td { white-space: normal !important; width: auto !important; } }
+    .fine { color: var(--text-3); font-size: 13.5px; max-width: 760px; margin: 36px auto 0; text-align: center; }
+
+    .final { text-align: center; position: relative; overflow: hidden; }
+    .final::before { content: ""; position: absolute; left: 50%; top: 50%; width: 900px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(245,165,36,.16), transparent); pointer-events: none; }
+    .final > * { position: relative; }
+    .final img { width: 96px; height: 96px; margin: 0 auto 20px; filter: drop-shadow(0 18px 30px rgba(245,165,36,.35)); }
+
+    footer { border-top: 1px solid var(--line); padding: 30px 0 44px; font-size: 14px; color: var(--text-3); }
+    .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .foot .logo { font-size: 17px; } .foot .logo img { width: 24px; height: 24px; }
+    .foot-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .by { text-decoration: none; color: var(--text-2); border: 1px solid var(--line-2); padding: 6px 12px; border-radius: 999px; font-size: 13px; }
+    .by:hover { color: var(--text); }
+
+    .rv { opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s ease; }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="wrap bar-in">
+      <a href="{{ path }}" class="logo"><img src="/assets/img/zapper/icon.png" alt="">Zapper</a>
+      <nav class="links">
+        <a href="#demo">{{ t.nav.try }}</a>
+        <a href="#funciones">{{ c.product.features }}</a>
+        <a href="#atajos">{{ c.product.shortcuts }}</a>
+        {% include "_langs.html" %}
+        <a href="#acceso" class="btn btn-amber">{{ c.product.request }}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">{{ t.hero.eyebrow }}</div>
+        <h1>{{ t.hero.title }}</h1>
+        <p class="sub">{{ t.hero.sub }}</p>
+        <div class="cta">
+          <a href="#demo" class="btn btn-amber">{{ t.hero.try }}</a>
+          <a href="#funciones" class="btn btn-line">{{ t.hero.see }}</a>
+        </div>
+        <p class="req">{{ t.hero.req }}</p>
+        <img src="/assets/img/zapper/hero.png" alt="{{ t.hero.alt|attr }}" class="hero-img rv">
+      </div>
+    </section>
+
+    <section style="padding-top:60px">
+      <div class="wrap center">
+        <div class="eyebrow rv">{{ t.why.eyebrow }}</div>
+        <h2 class="rv">{{ t.why.title }}</h2>
+        <p class="lead rv">{{ t.why.lead }}</p>
+      </div>
+    </section>
+
+    <section id="demo" style="padding-top:20px">
+      <div class="wrap">
+        <div class="center">
+          <div class="eyebrow rv">{{ t.nav.try }}</div>
+          <h2 class="rv">{{ t.demo.title }}</h2>
+          <p class="lead rv">{{ t.demo.lead }}</p>
+        </div>
+        <div class="demo rv">
+          <div>
+            <div class="tv-screen">
+              <div class="tv-off">{{ t.demo.off }}</div>
+              <div class="tv-ui" id="tv-ui">
+                <div class="tv-hello">{{ t.demo.room }}<small>{{ t.demo.connected }} · QN65S90D</small></div>
+                <div class="tv-row">
+                  <div class="tv-app" style="background:#b20710">Netflix</div>
+                  <div class="tv-app" style="background:#cc1f1f">YouTube</div>
+                  <div class="tv-app" style="background:#0f79af">Prime Video</div>
+                  <div class="tv-app" style="background:#1db954;color:#06210f">Spotify</div>
+                  <div class="tv-app" style="background:#1a2a6c">Disney+</div>
+                </div>
+                <div class="tv-open" id="tv-open"></div>
+                <div class="tv-osd" id="tv-osd"><span id="osd-text">VOL 12</span><span class="barv"><i id="osd-bar"></i></span></div>
+              </div>
+            </div>
+            <div class="tv-stand"></div>
+          </div>
+          {% set a = t.demo.aria %}
+          <div class="remote" id="remote" aria-label="{{ t.demo.remote|attr }}">
+            <div class="r-row">
+              <button class="rb round power" data-k="power" aria-label="{{ a.power|attr }}">⏻</button>
+              <div style="display:flex;gap:8px"><button class="rb" data-k="source">Source</button><button class="rb" data-k="menu">Menu</button></div>
+            </div>
+            <div class="dpad">
+              <button class="up" data-k="up" aria-label="{{ a.up|attr }}">⌃</button>
+              <button class="left" data-k="left" aria-label="{{ a.left|attr }}">‹</button>
+              <button class="ok" data-k="ok">OK</button>
+              <button class="right" data-k="right" aria-label="{{ a.right|attr }}">›</button>
+              <button class="down" data-k="down" aria-label="{{ a.down|attr }}">⌄</button>
+            </div>
+            <div class="r-row" style="justify-content:space-around">
+              <button class="rb round" data-k="back" aria-label="{{ a.back|attr }}">↩</button>
+              <button class="rb round" data-k="home" aria-label="{{ a.home|attr }}">⌂</button>
+              <button class="rb round" data-k="play" aria-label="{{ a.play|attr }}">⏯</button>
+            </div>
+            <div class="r-row" style="justify-content:space-around;align-items:stretch">
+              <div class="rocker"><button data-k="volup" aria-label="{{ a.volup|attr }}">+</button><span>VOL</span><button data-k="voldown" aria-label="{{ a.voldown|attr }}">−</button></div>
+              <div style="display:grid;gap:10px;align-content:center"><button class="rb round" data-k="mute" aria-label="{{ a.mute|attr }}">🔇</button><button class="rb" data-k="info">Info</button></div>
+              <div class="rocker"><button data-k="chup" aria-label="{{ a.chup|attr }}">⌃</button><span>CH</span><button data-k="chdown" aria-label="{{ a.chdown|attr }}">⌄</button></div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-hint">{{ t.demo.hint }}</p>
+      </div>
+    </section>
+
+    <section id="funciones" style="padding-top:60px">
+      <div class="wrap center">
+        <div class="eyebrow rv">{{ c.product.features }}</div>
+        <h2 class="rv">{{ t.features.title }}</h2>
+        <div class="features">
+          {% for f in t.features.entries %}<div class="feature rv"><div class="ic">{{ f.icon }}</div><h3>{{ f.title }}</h3><p>{{ f.text }}</p></div>
+          {% endfor %}
+        </div>
+        <div class="gallery">
+          {% set first = 'remote-dark-es-window.png' if lang == 'es' else 'remote-dark-en-window.png' %}
+          {% for img in [first, 'remote-light-en-window.png', 'remote-keypad-dark-en-window.png'] %}<img src="/assets/img/zapper/{{ img }}" alt="{{ t.features.gallery_alts[loop.index0]|attr }}" class="rv" loading="lazy">
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:40px">
+      <div class="wrap center">
+        <div class="eyebrow rv">{{ t.setup.eyebrow }}</div>
+        <h2 class="rv">{{ t.setup.title }}</h2>
+        <div class="steps">
+          {% for s in t.setup.steps %}<div class="step rv"><h3>{{ s[0] }}</h3><p>{{ s[1] }}</p></div>
+          {% endfor %}
+        </div>
+        <div class="gallery small">
+          {% for img in ['welcome-dark-en-window.png', 'discovery-light-en-window.png', 'pairing-light-en-window.png', 'menubar-dark-en-window.png'] %}<img src="/assets/img/zapper/{{ img }}" alt="{{ t.setup.alts[loop.index0]|attr }}" class="rv" loading="lazy">
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section id="atajos" style="padding-top:40px">
+      <div class="wrap" style="max-width:880px">
+        <div class="center">
+          <div class="eyebrow rv">{{ t.shortcuts.eyebrow }}</div>
+          <h2 class="rv">{{ t.shortcuts.title }}</h2>
+          <p class="lead rv">{{ t.shortcuts.lead }}</p>
+        </div>
+        {% set r = t.shortcuts.rows %}
+        <table class="keys rv" id="kbd-table">
+          <tr data-k="arrows" data-k2="vol"><td><kbd>←</kbd><kbd>↑</kbd><kbd>→</kbd><kbd>↓</kbd></td><td>{{ r[0][0] }}</td><td><kbd>+</kbd><kbd>−</kbd></td><td>{{ r[0][1] }}</td></tr>
+          <tr data-k="ok" data-k2="mute"><td><kbd>Return</kbd></td><td>OK</td><td><kbd>M</kbd></td><td>{{ r[1][1] }}</td></tr>
+          <tr data-k="back" data-k2="ch"><td><kbd>Esc</kbd><kbd>Delete</kbd></td><td>{{ r[2][0] }}</td><td><kbd>]</kbd><kbd>[</kbd></td><td>{{ r[2][1] }}</td></tr>
+          <tr data-k="play"><td><kbd>{{ t.shortcuts.space }}</kbd></td><td>{{ r[3][0] }}</td><td><kbd>0</kbd>–<kbd>9</kbd></td><td>{{ r[3][1] }}</td></tr>
+          <tr data-k="home" data-k2="info"><td><kbd>H</kbd></td><td>{{ r[4][0] }}</td><td><kbd>I</kbd></td><td>Info</td></tr>
+          <tr data-k="source" data-k2="power"><td><kbd>S</kbd></td><td>{{ r[5][0] }}</td><td><kbd>P</kbd></td><td>{{ r[5][1] }}</td></tr>
+          <tr data-k="type"><td><kbd>T</kbd></td><td>{{ r[6][0] }}</td><td><kbd>⌘</kbd><kbd>/</kbd></td><td>{{ r[6][1] }}</td></tr>
+        </table>
+        <p class="fine">{{ t.shortcuts.requirements }}</p>
+        <p class="fine" id="privacidad">{{ t.shortcuts.privacy }}</p>
+      </div>
+    </section>
+
+    <section class="final" id="acceso">
+      <div class="wrap rv">
+        <img src="/assets/img/zapper/icon.png" alt="">
+        <h2>{{ t.final.title }}</h2>
+        <p class="lead" style="margin:0 auto 28px">{{ t.final.lead }}</p>
+        <div class="cta"><a href="mailto:brayanveradev@gmail.com?subject=Zapper%20%E2%80%94%20{{ c.product.subject | urlencode }}" class="btn btn-amber">{{ c.product.request }}</a></div>
+        <p class="fine">{{ t.final.disclaimer }}</p>
+      </div>
+    </section>
+  </main>
+
+{% include "_product_footer.html" %}
+
+  <script>
+    (function () {
+      const bar = document.querySelector('.bar');
+      const onScroll = () => bar.classList.toggle('scrolled', scrollY > 8);
+      onScroll(); addEventListener('scroll', onScroll, { passive: true });
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+      // Simulación del control: el teclado y los botones manejan un televisor de mentira.
+      const L = {{ t.demo.osd | tojson }};
+      const ROOM = {{ t.demo.room | tojson }};
+      const ui = document.getElementById('tv-ui'), apps = [...document.querySelectorAll('.tv-app')];
+      const open = document.getElementById('tv-open'), osd = document.getElementById('tv-osd');
+      const osdText = document.getElementById('osd-text'), osdBar = document.getElementById('osd-bar');
+      const remote = document.getElementById('remote'), table = document.getElementById('kbd-table');
+      const demo = document.getElementById('demo');
+      let on = true, focus = 0, opened = false, vol = 12, muted = false, ch = 7, playing = true, osdTimer;
+
+      const showOSD = (text, pct) => {
+        osdText.textContent = text;
+        osdBar.parentElement.style.display = pct == null ? 'none' : '';
+        if (pct != null) osdBar.style.width = pct + '%';
+        osd.classList.add('on');
+        clearTimeout(osdTimer);
+        osdTimer = setTimeout(() => osd.classList.remove('on'), 1400);
+      };
+      const render = () => {
+        ui.classList.toggle('off', !on);
+        apps.forEach((a, i) => a.classList.toggle('focus', i === focus && !opened));
+        open.classList.toggle('on', opened);
+        if (opened) { open.textContent = apps[focus].textContent; open.style.background = apps[focus].style.background; }
+      };
+      const act = {
+        power: () => { on = !on; opened = false; },
+        left: () => { if (!opened) focus = Math.max(0, focus - 1); },
+        right: () => { if (!opened) focus = Math.min(apps.length - 1, focus + 1); },
+        ok: () => { opened = true; },
+        back: () => { opened = false; },
+        home: () => { opened = false; focus = 0; },
+        play: () => { playing = !playing; showOSD(playing ? L.play : L.pause); },
+        volup: () => { muted = false; vol = Math.min(100, vol + 1); showOSD('VOL ' + vol, vol); },
+        voldown: () => { muted = false; vol = Math.max(0, vol - 1); showOSD('VOL ' + vol, vol); },
+        mute: () => { muted = !muted; showOSD(muted ? L.muted : 'VOL ' + vol, muted ? 0 : vol); },
+        chup: () => { ch++; showOSD('CH ' + ch); },
+        chdown: () => { ch = Math.max(1, ch - 1); showOSD('CH ' + ch); },
+        source: () => showOSD(L.source),
+        menu: () => showOSD(L.menu),
+        info: () => showOSD(ROOM + ' · CH ' + ch),
+        type: () => showOSD(L.type),
+      };
+      const press = k => {
+        if (!on && k !== 'power') return;
+        (act[k] || (() => {}))();
+        render();
+        const btn = remote.querySelector(`[data-k="${k}"]`);
+        if (btn) { btn.classList.add('pressed'); setTimeout(() => btn.classList.remove('pressed'), 140); }
+        const rowKey = ['left', 'right', 'up', 'down'].includes(k) ? 'arrows' : k.startsWith('vol') ? 'vol' : k.startsWith('ch') ? 'ch' : k;
+        const row = [...table.rows].find(r => r.dataset.k === rowKey || r.dataset.k2 === rowKey);
+        if (row) { row.classList.add('hit'); setTimeout(() => row.classList.remove('hit'), 500); }
+      };
+      remote.addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (b) press(b.dataset.k); });
+
+      const map = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down', Enter: 'ok', Escape: 'back', Backspace: 'back', Delete: 'back', ' ': 'play', '+': 'volup', '=': 'volup', '-': 'voldown', m: 'mute', ']': 'chup', '[': 'chdown', h: 'home', s: 'source', p: 'power', i: 'info', t: 'type' };
+      let demoVisible = false, tableVisible = false;
+      new IntersectionObserver(([e]) => { demoVisible = e.isIntersecting; }, { threshold: 0.35 }).observe(demo);
+      new IntersectionObserver(([e]) => { tableVisible = e.isIntersecting; }, { threshold: 0.3 }).observe(table);
+      addEventListener('keydown', e => {
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        const k = map[e.key.length === 1 ? e.key.toLowerCase() : e.key];
+        if (!k || !(demoVisible || tableVisible)) return;
+        e.preventDefault();
+        press(k);
+      });
+
+      // Mientras nadie toca nada, el foco recorre las apps para que la demo se vea viva.
+      let idle = 0;
+      addEventListener('keydown', () => idle = 0);
+      remote.addEventListener('click', () => idle = 0);
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setInterval(() => { if (++idle < 4 || !demoVisible || !on || opened) return; focus = (focus + 1) % apps.length; render(); }, 1200);
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>

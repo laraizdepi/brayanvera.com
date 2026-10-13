@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14130f" media="(prefers-color-scheme: dark)">
+{% include "_alternates.html" %}
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ self.description() }}">
+  <meta property="og:url" content="{{ base_url }}{{ path }}">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <link rel="icon" href="/assets/site/favicon.svg" type="image/svg+xml">
+  <script>try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+{% block head_extra %}{% endblock %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+{% block katex_css %}{% endblock %}
+  <link rel="stylesheet" href="/assets/site/notebook.css">
+{% block style %}{% endblock %}
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="page masthead-inner">
+      <a href="{{ url('home') }}" class="wordmark">Brayan Vera</a>
+      <nav class="nav" aria-label="{{ c.nav.label }}">
+        <a href="{{ url('home') }}#quantum">{{ c.nav.research }}</a>
+        <a href="{{ url('home') }}#software">{{ c.nav.software }}</a>
+        <a href="{{ url('notes') }}"{% if page_id == 'notes' or page_id.startswith('essay:') %} aria-current="page"{% endif %}>{{ c.nav.notes }}</a>
+        <a href="{{ url('home') }}#cv">{{ c.nav.cv }}</a>
+        {% include "_langs.html" %}
+        <button class="theme-toggle" type="button" aria-label="{{ c.theme_toggle }}"></button>
+      </nav>
+    </div>
+  </header>
+
+{% block main %}{% endblock %}
+
+{% block scripts %}
+  <script defer src="/assets/site/notebook.js"></script>
+{% endblock %}
+</body>
+</html>

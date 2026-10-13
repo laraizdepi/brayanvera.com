@@ -1,0 +1,338 @@
+# Landing de Productity. La interfaz de la app está en español.
+
+[meta.title]
+es = "Productity — El pomodoro para estudiar con dos pantallas"
+en = "Productity — The Pomodoro timer for studying with two screens"
+de = "Productity — Der Pomodoro-Timer zum Lernen mit zwei Bildschirmen"
+
+[meta.description]
+es = "Productity es un temporizador pomodoro nativo para Mac e iPad: el reloj a pantalla completa en el portátil, el material en el monitor grande, metas por día y una racha que no quieres romper."
+en = "Productity is a native Pomodoro timer for Mac and iPad: a full-screen clock on your laptop, your material on the big monitor, daily goals and a streak you won't want to break."
+de = "Productity ist ein nativer Pomodoro-Timer für Mac und iPad: die Vollbilduhr auf dem Laptop, das Material auf dem großen Monitor, Tagesziele und eine Serie, die du nicht abreißen lassen willst."
+
+[meta.og]
+es = "El reloj en el portátil, el material en el monitor grande y una racha que no quieres romper."
+en = "The clock on your laptop, your material on the big monitor and a streak you don't want to break."
+de = "Die Uhr auf dem Laptop, das Material auf dem großen Monitor und eine Serie, die du nicht abreißen lassen willst."
+
+# ---------- Portada ----------
+[hero.eyebrow]
+es = "Pomodoro para Mac y iPad"
+en = "Pomodoro for Mac and iPad"
+de = "Pomodoro für Mac und iPad"
+
+[hero.title]
+es = "Estudia con dos pantallas. <span>Una solo para el reloj.</span>"
+en = "Study with two screens. <span>One just for the clock.</span>"
+de = "Lerne mit zwei Bildschirmen. <span>Einer nur für die Uhr.</span>"
+
+[hero.sub]
+es = "El reloj en el portátil o en el iPad, el material en el monitor grande y una racha que no quieres romper."
+en = "The clock on your laptop or iPad, your material on the big monitor and a streak you don't want to break."
+de = "Die Uhr auf dem Laptop oder iPad, das Material auf dem großen Monitor und eine Serie, die du nicht abreißen lassen willst."
+
+[hero.see]
+es = "Ver funciones"
+en = "See features"
+de = "Funktionen ansehen"
+
+[hero.req]
+es = "macOS 14 o posterior · iPadOS 17 o posterior · Funciona sin cuenta"
+en = "macOS 14 or later · iPadOS 17 or later · No account needed · Interface in Spanish"
+de = "macOS 14 oder neuer · iPadOS 17 oder neuer · Ohne Konto nutzbar · Oberfläche auf Spanisch"
+
+# ---------- Escena de dos pantallas ----------
+[mock.subject]
+es = "MECÁNICA CUÁNTICA"
+en = "QUANTUM MECHANICS"
+de = "QUANTENMECHANIK"
+
+[mock.note_running]
+es = "3 de 4 · racha de 7 días"
+en = "3 of 4 · 7-day streak"
+de = "3 von 4 · 7-Tage-Serie"
+
+[mock.note_done]
+es = "Meta cumplida · racha de 8 días"
+en = "Goal reached · 8-day streak"
+de = "Ziel erreicht · 8-Tage-Serie"
+
+[mock.heading]
+es = "4.2 El oscilador armónico cuántico"
+en = "4.2 The quantum harmonic oscillator"
+de = "4.2 Der quantenmechanische harmonische Oszillator"
+
+[mock.p1]
+es = "Consideremos una partícula de masa m sujeta a un potencial cuadrático. Introduciendo los operadores de creación y aniquilación, el hamiltoniano adopta una forma particularmente simple."
+en = "Consider a particle of mass m in a quadratic potential. Introducing the creation and annihilation operators, the Hamiltonian takes a particularly simple form."
+de = "Betrachten wir ein Teilchen der Masse m in einem quadratischen Potential. Mit den Erzeugungs- und Vernichtungsoperatoren nimmt der Hamiltonoperator eine besonders einfache Form an."
+
+[mock.p2]
+es = "Los autovalores de la energía resultan equiespaciados, separados por ħω, y el estado fundamental posee una energía no nula: la energía de punto cero."
+en = "The energy eigenvalues turn out to be equally spaced, separated by ħω, and the ground state has non-zero energy: the zero-point energy."
+de = "Die Energieeigenwerte sind äquidistant mit Abstand ħω, und der Grundzustand hat eine von null verschiedene Energie: die Nullpunktsenergie."
+
+[mock.p3]
+es = "Este resultado reaparece en la teoría cuántica de campos, donde cada modo del campo se comporta como un oscilador independiente."
+en = "This result reappears in quantum field theory, where each mode of the field behaves like an independent oscillator."
+de = "Dieses Ergebnis taucht in der Quantenfeldtheorie wieder auf, wo sich jede Mode des Feldes wie ein unabhängiger Oszillator verhält."
+
+# ---------- Por qué existe ----------
+[why.eyebrow]
+es = "Por qué existe"
+en = "Why it exists"
+de = "Warum es sie gibt"
+
+[why.title]
+es = "Nació de un problema <span>concreto</span>."
+en = "Born from a <span>real</span> problem."
+de = "Entstanden aus einem <span>konkreten</span> Problem."
+
+[why.lead]
+es = "Estudiar con un MacBook conectado a un monitor externo: el material en la pantalla grande y la del portátil dedicada solo al reloj. Productity cuenta lo que estudias con la técnica pomodoro sin interponerse."
+en = "Studying with a MacBook hooked up to an external monitor: the material on the big screen and the laptop screen dedicated only to the clock. Productity tracks what you study with the Pomodoro technique without getting in the way."
+de = "Lernen mit einem MacBook am externen Monitor: das Material auf dem großen Bildschirm, der Laptop-Bildschirm nur für die Uhr. Productity zählt mit der Pomodoro-Technik, was du lernst, ohne dir in die Quere zu kommen."
+
+[why.points]
+es = ["<b>Bloques de 45 minutos</b> por defecto, no los 25 clásicos, con descansos cortos y largos.", "<b>Reloj a pantalla completa</b> en el monitor que elijas, tapando la barra de menús y el Dock sin quitarte el foco del teclado.", "<b>Anota en qué trabajaste</b> en cada bloque, desde la app o desde el propio aviso."]
+en = ["<b>45-minute blocks</b> by default, not the classic 25, with short and long breaks.", "<b>A full-screen clock</b> on the monitor you choose, covering the menu bar and Dock without taking keyboard focus away from you.", "<b>Note what you worked on</b> in each block, from the app or right from the notification."]
+de = ["<b>45-Minuten-Blöcke</b> als Standard, nicht die klassischen 25, mit kurzen und langen Pausen.", "<b>Vollbilduhr</b> auf dem Monitor deiner Wahl, über Menüleiste und Dock, ohne dir den Tastaturfokus zu nehmen.", "<b>Notiere, woran du gearbeitet hast</b>, in jedem Block, in der App oder direkt in der Mitteilung."]
+
+[why.alt]
+es = "Pantalla Hoy de Productity"
+en = "Productity's Today screen"
+de = "Heute-Ansicht von Productity"
+
+# ---------- Funciones ----------
+[features.title]
+es = "Todo lo necesario para <span>no romper la racha</span>."
+en = "Everything you need to <span>keep the streak alive</span>."
+de = "Alles, was du brauchst, damit <span>die Serie hält</span>."
+
+[[features.entries]]
+icon = "⏱"
+[features.entries.title]
+es = "Bloques a tu medida"
+en = "Blocks your way"
+de = "Blöcke nach Maß"
+[features.entries.text]
+es = "25, 45, 50, 60 o 90 minutos. La cuenta atrás usa marcas de tiempo absolutas: no se desvía si el Mac se suspende."
+en = "25, 45, 50, 60 or 90 minutes. The countdown uses absolute timestamps, so it doesn't drift when the Mac sleeps."
+de = "25, 45, 50, 60 oder 90 Minuten. Der Countdown nutzt absolute Zeitstempel und läuft nicht davon, wenn der Mac schläft."
+
+[[features.entries]]
+icon = "🌊"
+[features.entries.title]
+es = "Tiempo extra en racha"
+en = "Overtime when you're on a roll"
+de = "Verlängerung im Flow"
+[features.entries.text]
+es = "Al acabar el bloque suena la campana, pero el reloj sigue, y lo que estudies de más se suma al bloque."
+en = "When the block ends the bell rings, but the clock keeps going, and whatever extra you study is added to the block."
+de = "Am Ende des Blocks läutet die Glocke, aber die Uhr läuft weiter, und was du länger lernst, zählt zum Block."
+
+[[features.entries]]
+icon = "🖥"
+[features.entries.title]
+es = "Pantalla completa sin robar el foco"
+en = "Full screen without stealing focus"
+de = "Vollbild, ohne den Fokus zu stehlen"
+[features.entries.text]
+es = "El reloj ocupa la pantalla que elijas y la recuerda aunque desconectes el monitor."
+en = "The clock takes over the screen you choose and remembers it even if you unplug the monitor."
+de = "Die Uhr belegt den Bildschirm deiner Wahl und merkt ihn sich, auch wenn du den Monitor trennst."
+
+[[features.entries]]
+icon = "🎯"
+[features.entries.title]
+es = "Metas por día"
+en = "Goals for each day"
+de = "Ziele für jeden Tag"
+[features.entries.text]
+es = "Más pomodoros los días libres y menos los días cargados de clase. Cambiarlas no reescribe el pasado."
+en = "More Pomodoros on free days and fewer on days packed with classes. Changing them doesn't rewrite the past."
+de = "Mehr Pomodoros an freien Tagen, weniger an vollen Unitagen. Änderungen schreiben die Vergangenheit nicht um."
+
+[[features.entries]]
+icon = "🔥"
+[features.entries.title]
+es = "Racha con protectores"
+en = "Streaks with shields"
+de = "Serie mit Schutzschilden"
+[features.entries.text]
+es = "Cada semana completa te da un protector que salva la racha en un día flojo. Puedes guardar hasta dos."
+en = "Every complete week earns you a shield that saves your streak on a slow day. You can keep up to two."
+de = "Jede vollständige Woche bringt dir einen Schutz, der deine Serie an einem schwachen Tag rettet. Du kannst bis zu zwei sammeln."
+
+[[features.entries]]
+icon = "🗓"
+[features.entries.title]
+es = "Horario de clases"
+en = "Class schedule"
+de = "Stundenplan"
+[features.entries.text]
+es = "Conectado con tus materias: te avisa cuándo ponerte a estudiar y puede ajustar tus metas solo."
+en = "Linked to your subjects: it tells you when to start studying and can adjust your goals on its own."
+de = "Mit deinen Fächern verknüpft: Er sagt dir, wann du loslegen solltest, und kann deine Ziele selbst anpassen."
+
+[[features.entries]]
+icon = "📊"
+[features.entries.title]
+es = "Historial que motiva"
+en = "History that motivates"
+de = "Verlauf, der motiviert"
+[features.entries.text]
+es = "Mapa de actividad del último año, los últimos siete días frente a la meta y el reparto por materia."
+en = "An activity map of the past year, the last seven days against your goal and the breakdown by subject."
+de = "Aktivitätskarte des letzten Jahres, die letzten sieben Tage im Vergleich zum Ziel und die Verteilung nach Fach."
+
+[[features.entries]]
+icon = "📝"
+[features.entries.title]
+es = "Sesiones corregibles"
+en = "Editable sessions"
+de = "Korrigierbare Sitzungen"
+[features.entries.text]
+es = "¿Olvidaste poner el reloj? Apunta la sesión a mano o corrige la materia, la hora o la duración."
+en = "Forgot to start the clock? Log the session by hand or fix the subject, time or duration."
+de = "Uhr vergessen? Trag die Sitzung von Hand ein oder korrigiere Fach, Uhrzeit oder Dauer."
+
+[[features.entries]]
+icon = "🌙"
+[features.entries.title]
+es = "Días que cuentan bien"
+en = "Days that count right"
+de = "Tage, die richtig zählen"
+[features.entries.text]
+es = "La jornada empieza a las 4:00, así que estudiar a la una de la madrugada cuenta para el día anterior."
+en = "The day starts at 4:00 a.m., so studying at 1 a.m. counts toward the previous day."
+de = "Der Tag beginnt um 4:00 Uhr, also zählt Lernen um ein Uhr nachts zum Vortag."
+
+# ---------- Bloques con capturas (se alternan izquierda/derecha) ----------
+[[blocks]]
+image = "tiempo-extra.png"
+[blocks.eyebrow]
+es = "Tiempo extra"
+en = "Overtime"
+de = "Verlängerung"
+[blocks.title]
+es = "Cuando estás en racha, <span>el reloj no te corta</span>."
+en = "When you're on a roll, <span>the clock won't cut you off</span>."
+de = "Wenn du im Flow bist, <span>unterbricht dich die Uhr nicht</span>."
+[blocks.lead]
+es = "Al llegar a cero suena y el reloj pasa a «+03:12». El pomodoro ya cuenta, y los minutos de más se suman al bloque cuando pasas al descanso, con un tope configurable."
+en = "At zero it chimes and the clock switches to “+03:12”. The Pomodoro already counts, and the extra minutes are added to the block when you take your break, up to a limit you set."
+de = "Bei null ertönt ein Signal und die Uhr wechselt zu „+03:12“. Der Pomodoro zählt schon, und die zusätzlichen Minuten werden dem Block beim Wechsel in die Pause gutgeschrieben, bis zu einer einstellbaren Grenze."
+[blocks.alt]
+es = "Tiempo extra tras completar un bloque"
+en = "Overtime after completing a block"
+de = "Verlängerung nach einem abgeschlossenen Block"
+
+[[blocks]]
+image = "historial.png"
+[blocks.eyebrow]
+es = "Historial"
+en = "History"
+de = "Verlauf"
+[blocks.title]
+es = "Tu constancia, <span>de un vistazo</span>."
+en = "Your consistency, <span>at a glance</span>."
+de = "Deine Beständigkeit <span>auf einen Blick</span>."
+[blocks.lead]
+es = "Racha actual y mejor racha, un mapa del año y cuánto le dedicas a cada materia. Pulsa un día para ver sus sesiones y corregirlas."
+en = "Current and best streak, a map of the year and how much time each subject gets. Tap a day to see its sessions and fix them."
+de = "Aktuelle und beste Serie, eine Jahreskarte und wie viel Zeit jedes Fach bekommt. Tippe auf einen Tag, um seine Sitzungen zu sehen und zu korrigieren."
+[blocks.points]
+es = ["<b>«Esta semana»</b> frente a la semana pasada hasta el mismo día.", "<b>Un día con meta 0 es de descanso</b> y no rompe la racha."]
+en = ["<b>“This week”</b> compared with last week up to the same day.", "<b>A day with a goal of 0 is a rest day</b> and doesn't break the streak."]
+de = ["<b>„Diese Woche“</b> im Vergleich zur letzten Woche bis zum selben Tag.", "<b>Ein Tag mit Ziel 0 ist ein Ruhetag</b> und unterbricht die Serie nicht."]
+[blocks.alt]
+es = "Pantalla Historial de Productity"
+en = "Productity's History screen"
+de = "Verlaufsansicht von Productity"
+
+[[blocks]]
+image = "horario.png"
+mini = "flotante.png"
+[blocks.eyebrow]
+es = "Horario y reloj flotante"
+en = "Schedule and floating clock"
+de = "Stundenplan und schwebende Uhr"
+[blocks.title]
+es = "Tu semana, <span>con el color de cada materia</span>."
+en = "Your week, <span>in the color of each subject</span>."
+de = "Deine Woche <span>in der Farbe jedes Fachs</span>."
+[blocks.lead]
+es = "Tras la última clase del día, un aviso te propone repasarla. Con una sola pantalla, o al pulsar Esc, el reloj se reduce a una tarjeta flotante que queda por encima de todo."
+en = "After your last class of the day, a notification suggests reviewing it. With a single screen, or when you press Esc, the clock shrinks to a floating card that stays on top of everything."
+de = "Nach der letzten Vorlesung des Tages schlägt dir eine Mitteilung vor, sie zu wiederholen. Mit nur einem Bildschirm, oder wenn du Esc drückst, schrumpft die Uhr zu einer schwebenden Karte, die über allem bleibt."
+[blocks.alt]
+es = "Pantalla Horario"
+en = "Schedule screen"
+de = "Stundenplan-Ansicht"
+[blocks.mini_alt]
+es = "Reloj flotante"
+en = "Floating clock"
+de = "Schwebende Uhr"
+
+# ---------- Mac + iPad ----------
+[ipad.title]
+es = "Empieza en el Mac. <span>Pausa desde el iPad.</span>"
+en = "Start on the Mac. <span>Pause from the iPad.</span>"
+de = "Starte auf dem Mac. <span>Pausiere auf dem iPad.</span>"
+
+[ipad.lead]
+es = "Las mismas pantallas en el iPad, que también hace de reloj dedicado, con la cuenta atrás en la pantalla de bloqueo."
+en = "The same screens on the iPad, which can also act as a dedicated clock, with the countdown on the Lock Screen."
+de = "Dieselben Ansichten auf dem iPad, das auch als eigene Uhr dient, mit dem Countdown auf dem Sperrbildschirm."
+
+[[ipad.cards]]
+[ipad.cards.title]
+es = "También en el iPad"
+en = "On the iPad, too"
+de = "Auch auf dem iPad"
+[ipad.cards.text]
+es = "El iPad hace de reloj a pantalla completa mientras estudias en el Mac."
+en = "The iPad works as a full-screen clock while you study on the Mac."
+de = "Das iPad wird zur Vollbilduhr, während du am Mac lernst."
+
+[[ipad.cards]]
+[ipad.cards.title]
+es = "Sincronización opcional"
+en = "Optional sync"
+de = "Optionale Synchronisierung"
+[ipad.cards.text]
+es = "Sesiones, materias, metas, horario y hasta el temporizador en marcha, con tu propio proyecto gratuito de Supabase."
+en = "Sessions, subjects, goals, schedule and even the running timer, through your own free Supabase project."
+de = "Sitzungen, Fächer, Ziele, Stundenplan und sogar der laufende Timer, über dein eigenes kostenloses Supabase-Projekt."
+
+[[ipad.cards]]
+[ipad.cards.title]
+es = "Primero lo local"
+en = "Local first"
+de = "Lokal zuerst"
+[ipad.cards.text]
+es = "Funciona sin cuenta y sin conexión. Sin telemetría. Si sincronizas, es con tu propio backend."
+en = "Works without an account and offline. No telemetry. If you sync, it's with your own backend."
+de = "Funktioniert ohne Konto und offline. Keine Telemetrie. Wenn du synchronisierst, dann mit deinem eigenen Backend."
+
+[ipad.stats]
+es = ["bloque por defecto", "pruebas automáticas", "dependencias externas", "rastreadores"]
+en = ["default block", "automated tests", "external dependencies", "trackers"]
+de = ["Standardblock", "automatisierte Tests", "externe Abhängigkeiten", "Tracker"]
+
+# ---------- Cierre ----------
+[final.title]
+es = "Tu próximo bloque empieza aquí."
+en = "Your next block starts here."
+de = "Dein nächster Block beginnt hier."
+
+[final.lead]
+es = "Productity está en acceso anticipado. Escribe y recibirás la versión para Mac."
+en = "Productity is in early access. Send an email and you'll get the Mac version."
+de = "Productity ist im Early Access. Schreib eine E-Mail, und du bekommst die Mac-Version."
+
+[final.req]
+es = "Requiere macOS 14 Sonoma o posterior."
+en = "Requires macOS 14 Sonoma or later. The app's interface is in Spanish."
+de = "Erfordert macOS 14 Sonoma oder neuer. Die Oberfläche der App ist auf Spanisch."

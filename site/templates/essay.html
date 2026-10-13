@@ -1,0 +1,32 @@
+{% extends "_notebook.html" %}
+{% block title %}{{ t.title }} · Brayan Vera{% endblock %}
+{% block description %}{{ t.description|attr }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block main %}
+{% set index = essays | map(attribute='path') | list %}
+{% set pos = index.index(path) %}
+{% set nxt = essays[(pos + 1) % (essays | length)] %}
+  <main class="page essay">
+    <article class="section row" style="padding-top:56px">
+      <div class="main">
+        <div class="kicker">{{ c.essay.label }} · {{ date(t.date) }}</div>
+        <h1 class="title">{{ t.title }}</h1>
+        <div class="byline"><span><b>Brayan Vera</b></span><span>{{ date(t.date) }}</span><span>{{ t.minutes }} {{ c.essay.reading }}</span>{% if c.essay.translated %}<span class="muted">{{ c.essay.translated }}</span>{% endif %}</div>
+        <div class="body" style="margin-top:30px">
+{{ t.body }}
+        </div>
+        <p class="muted" style="margin-top:40px; font-size:16px">{{ c.essay.next }}: <a href="{{ nxt.path }}">{{ nxt.title }}</a></p>
+      </div>
+      <aside class="side" style="padding-top:150px">
+{{ t.side }}
+      </aside>
+    </article>
+
+    <footer class="colophon">
+      <div class="row">
+        <div class="main"><a href="{{ url('notes') }}">{{ c.back_notes }}</a></div>
+        <div class="side">© <span id="year">2026</span> Brayan Vera</div>
+      </div>
+    </footer>
+  </main>
+{% endblock %}

@@ -1,0 +1,15 @@
+  <footer>
+    <div class="wrap foot">
+      <a href="{{ path }}" class="logo"><img src="/assets/img/{{ page_id }}/icon.png" alt="">{{ page_id | capitalize }}</a>
+      <div class="foot-right">
+        {% include "_langs.html" %}
+        <a href="{{ url('home') }}" class="by">{{ c.product.by }}</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('click', e => {
+      const a = e.target.closest('[data-lang]');
+      if (a) try { localStorage.setItem('lang', a.dataset.lang); } catch (err) {}
+    });
+  </script>

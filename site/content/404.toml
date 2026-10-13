@@ -1,0 +1,19 @@
+[title]
+es = "Esta página <em>no existe</em>."
+en = "This page <em>doesn't exist</em>."
+de = "Diese Seite <em>existiert nicht</em>."
+
+[text]
+es = "Mientras nadie la miraba, estaba en superposición de existir y no existir. Al buscarla, colapsó a «no existe»."
+en = "While nobody was looking, it was in a superposition of existing and not existing. When you looked for it, it collapsed to “doesn't exist”."
+de = "Solange niemand hinsah, war sie in einer Superposition aus Existieren und Nicht-Existieren. Als du sie gesucht hast, ist sie zu „existiert nicht“ kollabiert."
+
+[home]
+es = "← Volver al inicio"
+en = "← Back to home"
+de = "← Zur Startseite"
+
+[home_path]
+es = "/"
+en = "/en/"
+de = "/de/"

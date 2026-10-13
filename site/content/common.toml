@@ -1,0 +1,102 @@
+# Textos compartidos por todas las páginas.
+
+[lang_label]
+es = "Idioma"
+en = "Language"
+de = "Sprache"
+
+[theme_toggle]
+es = "Cambiar tema"
+en = "Change theme"
+de = "Design wechseln"
+
+[nav.label]
+es = "Secciones"
+en = "Sections"
+de = "Bereiche"
+
+[nav.research]
+es = "Investigación"
+en = "Research"
+de = "Forschung"
+
+[nav.software]
+es = "Software"
+en = "Software"
+de = "Software"
+
+[nav.notes]
+es = "Notas"
+en = "Notes"
+de = "Notizen"
+
+[nav.cv]
+es = "Trayectoria"
+en = "Background"
+de = "Werdegang"
+
+[colophon]
+es = "Compuesto en Newsreader e IBM Plex Mono. Las figuras se calculan en tu navegador. Sin rastreadores ni analíticas."
+en = "Set in Newsreader and IBM Plex Mono. The figures are computed in your browser. No trackers, no analytics."
+de = "Gesetzt in Newsreader und IBM Plex Mono. Die Abbildungen werden in deinem Browser berechnet. Keine Tracker, keine Analytics."
+
+[back_notes]
+es = "← Todas las notas"
+en = "← All notes"
+de = "← Alle Notizen"
+
+[back_home]
+es = "← Inicio"
+en = "← Home"
+de = "← Startseite"
+
+[essay.label]
+es = "Nota"
+en = "Note"
+de = "Notiz"
+
+[essay.reading]
+es = "min de lectura"
+en = "min read"
+de = "Min. Lesezeit"
+
+[essay.next]
+es = "Siguiente"
+en = "Next"
+de = "Weiter"
+
+[essay.translated]
+es = ""
+en = "Originally written in Spanish."
+de = "Ursprünglich auf Spanisch geschrieben."
+
+# Landings de las apps
+[product.by]
+es = "Un proyecto de Brayan Vera ↗"
+en = "A project by Brayan Vera ↗"
+de = "Ein Projekt von Brayan Vera ↗"
+
+[product.request]
+es = "Solicitar acceso"
+en = "Request access"
+de = "Zugang anfragen"
+
+[product.subject]
+es = "acceso anticipado"
+en = "early access"
+de = "Early Access"
+
+[product.privacy]
+es = "Privacidad"
+en = "Privacy"
+de = "Datenschutz"
+
+[product.features]
+es = "Funciones"
+en = "Features"
+de = "Funktionen"
+
+[product.shortcuts]
+es = "Atajos"
+en = "Shortcuts"
+de = "Kurzbefehle"

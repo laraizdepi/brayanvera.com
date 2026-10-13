@@ -1,0 +1,9 @@
+  <link rel="canonical" href="{{ base_url }}{{ path }}">
+{% for l in langs %}
+  <link rel="alternate" hreflang="{{ l }}" href="{{ base_url }}{{ alternates[l] }}">
+{% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ base_url }}{{ alternates[default_lang] }}">
+  <meta property="og:locale" content="{{ L.locale }}">
+{% for l in langs if l != lang %}
+  <meta property="og:locale:alternate" content="{{ config.lang[l].locale }}">
+{% endfor %}

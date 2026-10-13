@@ -1,0 +1,8 @@
+  <title>{{ t.meta.title }}</title>
+  <meta name="description" content="{{ t.meta.description|attr }}">
+{% include "_alternates.html" %}
+  <meta property="og:title" content="{{ t.meta.title|attr }}">
+  <meta property="og:description" content="{{ t.meta.og|attr }}">
+  <meta property="og:url" content="{{ base_url }}{{ path }}">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/assets/img/{{ page_id }}/icon.png" type="image/png">

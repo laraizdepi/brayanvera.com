@@ -1,0 +1,36 @@
+{% extends "_notebook.html" %}
+{% block title %}{{ c.nav.notes }} · Brayan Vera{% endblock %}
+{% block description %}{{ t.description|attr }}{% endblock %}
+{% block main %}
+  <main class="page">
+    <section class="section row" style="padding-top:56px">
+      <div class="main">
+        <div class="kicker">{{ c.nav.notes }}</div>
+        <h1 class="title">{{ t.title }}</h1>
+        <p class="lede" style="font-size:1.12em">{{ t.lede }}{% if c.essay.translated %} <span class="muted">{{ c.essay.translated }}</span>{% endif %}</p>
+        <div class="section-head" style="margin-top:44px"><span class="num">I</span><h2>{{ t.essays }}</h2></div>
+        <ul class="notes-list">
+          {% for e in essays %}
+          <li><a href="{{ e.path }}"><span class="t">{{ e.title }}</span><span class="d">{{ date(e.date, short=True) }}</span><span class="s">{{ e.description }}</span></a></li>
+          {% endfor %}
+        </ul>
+        <div class="section-head" style="margin-top:56px"><span class="num">II</span><h2>{{ t.fragments_heading }}</h2></div>
+        <ul class="fragments">
+          {% for f in t.fragments %}
+          <li>{{ f.text }}{% if f.date is defined %}<small>{{ date(f.date, short=True) }}</small>{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <aside class="side" style="padding-top:150px">
+        <p class="sidenote">{{ t.side }}</p>
+      </aside>
+    </section>
+
+    <footer class="colophon">
+      <div class="row">
+        <div class="main"><a href="{{ url('home') }}">{{ c.back_home }}</a></div>
+        <div class="side">© <span id="year">2026</span> Brayan Vera</div>
+      </div>
+    </footer>
+  </main>
+{% endblock %}

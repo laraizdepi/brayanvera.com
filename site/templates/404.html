@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ default_lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 · Brayan Vera</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/site/favicon.svg" type="image/svg+xml">
+  <script>try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site/notebook.css">
+</head>
+<body>
+  <main class="page" style="min-height:100vh; display:grid; align-content:center; max-width:720px">
+    <div class="kicker">Error 404</div>
+{% for l in langs %}
+    <section lang="{{ l }}" data-lang-block="{{ l }}"{% if l != default_lang %} hidden{% endif %}>
+      <h1 class="title">{{ t[l].title }}</h1>
+      <p style="font-size:20px; color:var(--ink-2)">{{ t[l].text }}</p>
+      <p><a href="{{ t[l].home_path }}">{{ t[l].home }}</a></p>
+    </section>
+{% endfor %}
+  </main>
+  <script>
+    // Muestra el idioma de la ruta que se buscó (/en/…, /de/…).
+    const m = location.pathname.match(/^\/(en|de)\//);
+    if (m) {
+      document.documentElement.lang = m[1];
+      document.querySelectorAll('[data-lang-block]').forEach(s => { s.hidden = s.dataset.langBlock !== m[1]; });
+    }
+  </script>
+</body>
+</html>
